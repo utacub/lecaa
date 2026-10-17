@@ -1,0 +1,52 @@
+{
+  "edition": 42,
+  "checks": [
+    {
+      "name": "T8 excludes equivalent target sounds throughout all teaching stages and option counts",
+      "ok": true,
+      "detail": {
+        "generated": 144000
+      }
+    },
+    {
+      "name": "T1 has one phonologically correct answer and recorded prompts and feedback in both voices",
+      "ok": true,
+      "detail": {
+        "generated": 20000,
+        "celPositive": true,
+        "celModel": true
+      }
+    },
+    {
+      "name": "T1 availability uses the same sound groups and respects restricted word banks",
+      "ok": true
+    },
+    {
+      "name": "T2 removes only the mixed-criterion family and continues to respect exclusions",
+      "ok": true,
+      "detail": {
+        "generated": 11000
+      }
+    },
+    {
+      "name": "All ten abstract emblems retain their existing profile and backup identifiers",
+      "ok": true
+    }
+  ],
+  "date": "2026-10-16",
+  "source_edition": 41,
+  "html_sha256": "20b2fd291132bb848bcb3c5ef4fce796f3668b060b4846426662027e404fe17c",
+  "html_bytes": 212263343,
+  "integrity": {
+    "unchanged_embedded_resources": 1853,
+    "same_resource_order_and_digests": true,
+    "csp_digest_valid": true,
+    "corrected_title_occurrences": 2
+  },
+  "visual_review": "All ten new SVG emblems rendered with Sharp and inspected; legacy keys unchanged.",
+  "test_scope": "Targeted JavaScript item-builder tests with DOM/media stubs, recorded-bank coverage for Anna and Jordi, syntax check and exact HTML/media integrity checks.",
+  "limitations": [
+    "No new full browser run in this environment; Chromium executable unavailable and official browser download did not provide an executable archive.",
+    "The previous full audit and its evidence remain attached unchanged for edition 41."
+  ]
+}

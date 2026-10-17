@@ -1,0 +1,2002 @@
+{
+  "date": "2026-10-16",
+  "integrity": {
+    "source_edition": 40,
+    "audited_edition": 41,
+    "source_sha256": "7ca3d99f20ad05cc1fb12d88d327a353bb656c13ef4cb9480642f9368bb6b482",
+    "audited_sha256": "3f189e085f67c350a2aca0dff0627e15006ec19f3526929be3cf561e250b7d82",
+    "html_bytes": 212261514,
+    "all_1853_assets_preserved": true
+  },
+  "counts": {
+    "grouped_checks": 102,
+    "passed": 101,
+    "open_curriculum_check": 1,
+    "media_resources": 1853,
+    "audio_entries": 5731,
+    "image_word_style_associations": 900,
+    "corpus_words": 300,
+    "readable_with_complete_sequence": 262,
+    "writable_with_complete_sequence": 228,
+    "over_six_graphemes": 42
+  },
+  "checks": [
+    {
+      "name": "Revision 41 boots through HTTP",
+      "ok": true
+    },
+    {
+      "name": "Shared header preserves chosen LECAA logo",
+      "ok": true
+    },
+    {
+      "name": "Five institutional logos load in requested order",
+      "ok": true
+    },
+    {
+      "name": "Full programme name, institutional description, tools and licenses present",
+      "ok": true
+    },
+    {
+      "name": "Every tool uses the same four-field format",
+      "ok": true
+    },
+    {
+      "name": "Credits remain bounded and close button visible at 700",
+      "ok": true
+    },
+    {
+      "name": "Credits remain bounded and close button visible at 390",
+      "ok": true
+    },
+    {
+      "name": "Credits remain bounded and close button visible at 320",
+      "ok": true
+    },
+    {
+      "name": "License section remains reachable on mobile",
+      "ok": true
+    },
+    {
+      "name": "Individual backup preserves settings, progress, password hash, image and audio",
+      "ok": true
+    },
+    {
+      "name": "Combined backup includes both profiles and separate custom media",
+      "ok": true
+    },
+    {
+      "name": "Export does not change active custom-media cache",
+      "ok": true
+    },
+    {
+      "name": "Home button downloads all device profiles as one JSON file",
+      "ok": true
+    },
+    {
+      "name": "Profiles persist locally after HTTP page reload",
+      "ok": true
+    },
+    {
+      "name": "Independent browser starts without the first device’s profiles",
+      "ok": true
+    },
+    {
+      "name": "Transfer restores profiles on another device without overwriting existing ones",
+      "ok": true
+    },
+    {
+      "name": "Transfer preserves exact custom-media bytes and user settings",
+      "ok": true
+    },
+    {
+      "name": "Source device is unchanged after transfer",
+      "ok": true
+    },
+    {
+      "name": "Individual import creates a separately named copy",
+      "ok": true
+    },
+    {
+      "name": "Legacy version-1 text backups remain compatible",
+      "ok": true
+    },
+    {
+      "name": "Invalid and remote-resource backups are rejected before modifying data",
+      "ok": true
+    },
+    {
+      "name": "Storage failure rolls back imported media and preserves existing profiles",
+      "ok": true
+    },
+    {
+      "name": "Individual file export is available in the profile data section",
+      "ok": true
+    },
+    {
+      "name": "Native speech fallback cannot choose a cloud voice",
+      "ok": true
+    },
+    {
+      "name": "CSP blocks outgoing fetch and beacon data transfers",
+      "ok": true
+    },
+    {
+      "name": "CSP blocks remote image requests",
+      "ok": true
+    },
+    {
+      "name": "HTTP server received only document requests, never profiles or media",
+      "ok": true
+    },
+    {
+      "name": "Letter-case preference and activity flow remain functional",
+      "ok": true
+    },
+    {
+      "name": "Downloadable HTML also opens offline with backup management",
+      "ok": true
+    },
+    {
+      "name": "No uncaught browser errors",
+      "ok": true
+    },
+    {
+      "name": "All 300 words have contour illustrations",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "All 300 words have matte illustrations",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "All 300 words have arasaac illustrations",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "Nine generic guide names; elephant retained",
+      "ok": true
+    },
+    {
+      "name": "Each guide has all nine animations",
+      "ok": true
+    },
+    {
+      "name": "Word, sound and guide-intro recordings cover anna",
+      "ok": true,
+      "detail": {
+        "missingWords": [],
+        "missingSounds": [],
+        "missingIntros": []
+      }
+    },
+    {
+      "name": "Word, sound and guide-intro recordings cover jordi",
+      "ok": true,
+      "detail": {
+        "missingWords": [],
+        "missingSounds": [],
+        "missingIntros": []
+      }
+    },
+    {
+      "name": "Random generation remains valid throughout letter progression",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "Full teaching sequence makes all corpus words readable",
+      "ok": false,
+      "detail": [
+        {
+          "word": "guix",
+          "missing": [
+            "gu"
+          ]
+        },
+        {
+          "word": "panxa",
+          "missing": [
+            "x"
+          ]
+        },
+        {
+          "word": "jersei",
+          "missing": [
+            "j"
+          ]
+        },
+        {
+          "word": "joia",
+          "missing": [
+            "j"
+          ]
+        },
+        {
+          "word": "jove",
+          "missing": [
+            "j"
+          ]
+        },
+        {
+          "word": "torre",
+          "missing": [
+            "rr"
+          ]
+        },
+        {
+          "word": "carro",
+          "missing": [
+            "rr"
+          ]
+        },
+        {
+          "word": "cotxe",
+          "missing": [
+            "tx"
+          ]
+        },
+        {
+          "word": "sorra",
+          "missing": [
+            "rr"
+          ]
+        },
+        {
+          "word": "gorra",
+          "missing": [
+            "rr"
+          ]
+        },
+        {
+          "word": "tassa",
+          "missing": [
+            "ss"
+          ]
+        },
+        {
+          "word": "caixa",
+          "missing": [
+            "x"
+          ]
+        },
+        {
+          "word": "paquet",
+          "missing": [
+            "qu"
+          ]
+        },
+        {
+          "word": "dutxa",
+          "missing": [
+            "tx"
+          ]
+        },
+        {
+          "word": "bossa",
+          "missing": [
+            "ss"
+          ]
+        },
+        {
+          "word": "vaixell",
+          "missing": [
+            "x"
+          ]
+        },
+        {
+          "word": "metge",
+          "missing": [
+            "tg"
+          ]
+        },
+        {
+          "word": "pluja",
+          "missing": [
+            "j"
+          ]
+        },
+        {
+          "word": "granja",
+          "missing": [
+            "j"
+          ]
+        },
+        {
+          "word": "platja",
+          "missing": [
+            "j"
+          ]
+        },
+        {
+          "word": "bruixa",
+          "missing": [
+            "x"
+          ]
+        },
+        {
+          "word": "pijama",
+          "missing": [
+            "j"
+          ]
+        },
+        {
+          "word": "taronja",
+          "missing": [
+            "j"
+          ]
+        },
+        {
+          "word": "guitarra",
+          "missing": [
+            "gu",
+            "rr"
+          ]
+        },
+        {
+          "word": "esquirol",
+          "missing": [
+            "qu"
+          ]
+        },
+        {
+          "word": "maduixa",
+          "missing": [
+            "x"
+          ]
+        },
+        {
+          "word": "cassola",
+          "missing": [
+            "ss"
+          ]
+        },
+        {
+          "word": "esquena",
+          "missing": [
+            "qu"
+          ]
+        },
+        {
+          "word": "pissarra",
+          "missing": [
+            "ss",
+            "rr"
+          ]
+        },
+        {
+          "word": "motxilla",
+          "missing": [
+            "tx"
+          ]
+        },
+        {
+          "word": "rellotge",
+          "missing": [
+            "tg"
+          ]
+        },
+        {
+          "word": "pallasso",
+          "missing": [
+            "ss"
+          ]
+        },
+        {
+          "word": "forquilla",
+          "missing": [
+            "qu"
+          ]
+        },
+        {
+          "word": "jaqueta",
+          "missing": [
+            "j",
+            "qu"
+          ]
+        },
+        {
+          "word": "formatge",
+          "missing": [
+            "tg"
+          ]
+        },
+        {
+          "word": "orquestra",
+          "missing": [
+            "qu"
+          ]
+        },
+        {
+          "word": "professor",
+          "missing": [
+            "ss"
+          ]
+        },
+        {
+          "word": "gronxador",
+          "missing": [
+            "x"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Plom and tub use different ARASAAC images",
+      "ok": true
+    },
+    {
+      "name": "Adult view opens: progress",
+      "ok": true,
+      "detail": {
+        "overflow": false
+      }
+    },
+    {
+      "name": "Adult view opens: acc",
+      "ok": true,
+      "detail": {
+        "overflow": false
+      }
+    },
+    {
+      "name": "Adult view opens: pres",
+      "ok": true,
+      "detail": {
+        "overflow": false
+      }
+    },
+    {
+      "name": "Adult view opens: plan",
+      "ok": true,
+      "detail": {
+        "overflow": false
+      }
+    },
+    {
+      "name": "Adult view opens: words",
+      "ok": true,
+      "detail": {
+        "overflow": false
+      }
+    },
+    {
+      "name": "Adult view opens: snd",
+      "ok": true,
+      "detail": {
+        "overflow": false
+      }
+    },
+    {
+      "name": "Adult view opens: data",
+      "ok": true,
+      "detail": {
+        "overflow": false
+      }
+    },
+    {
+      "name": "Adult view opens: hist",
+      "ok": true,
+      "detail": {
+        "overflow": false
+      }
+    },
+    {
+      "name": "Presentation offers nine guides, three image styles and letter case",
+      "ok": true
+    },
+    {
+      "name": "No message or family-note tab remains",
+      "ok": true
+    },
+    {
+      "name": "T1 completes with a correct independent answer",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "indep": true,
+        "help": "A0",
+        "sessionTrials": 1,
+        "actualTrials": 1,
+        "highlighted": [],
+        "litAfter": 0,
+        "case": "upper"
+      }
+    },
+    {
+      "name": "T1 session trial count matches the log",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "indep": true,
+        "help": "A0",
+        "sessionTrials": 1,
+        "actualTrials": 1,
+        "highlighted": [],
+        "litAfter": 0,
+        "case": "upper"
+      }
+    },
+    {
+      "name": "T2 completes with a correct independent answer",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "indep": true,
+        "help": "A0",
+        "sessionTrials": 1,
+        "actualTrials": 1,
+        "highlighted": [],
+        "litAfter": 0,
+        "case": "upper"
+      }
+    },
+    {
+      "name": "T2 session trial count matches the log",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "indep": true,
+        "help": "A0",
+        "sessionTrials": 1,
+        "actualTrials": 1,
+        "highlighted": [],
+        "litAfter": 0,
+        "case": "upper"
+      }
+    },
+    {
+      "name": "T8 completes with a correct independent answer",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "indep": true,
+        "help": "A0",
+        "sessionTrials": 1,
+        "actualTrials": 1,
+        "highlighted": [],
+        "litAfter": 0,
+        "case": "upper"
+      }
+    },
+    {
+      "name": "T8 session trial count matches the log",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "indep": true,
+        "help": "A0",
+        "sessionTrials": 1,
+        "actualTrials": 1,
+        "highlighted": [],
+        "litAfter": 0,
+        "case": "upper"
+      }
+    },
+    {
+      "name": "T9 completes with a correct independent answer",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "indep": true,
+        "help": "A0",
+        "sessionTrials": 1,
+        "actualTrials": 1,
+        "highlighted": [],
+        "litAfter": 0,
+        "case": "upper"
+      }
+    },
+    {
+      "name": "T9 session trial count matches the log",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "indep": true,
+        "help": "A0",
+        "sessionTrials": 1,
+        "actualTrials": 1,
+        "highlighted": [],
+        "litAfter": 0,
+        "case": "upper"
+      }
+    },
+    {
+      "name": "T11 completes with a correct independent answer",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "indep": true,
+        "help": "A0",
+        "sessionTrials": 1,
+        "actualTrials": 1,
+        "highlighted": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "letters": 4,
+        "litAfter": 0,
+        "case": "upper"
+      }
+    },
+    {
+      "name": "T11 session trial count matches the log",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "indep": true,
+        "help": "A0",
+        "sessionTrials": 1,
+        "actualTrials": 1,
+        "highlighted": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "letters": 4,
+        "litAfter": 0,
+        "case": "upper"
+      }
+    },
+    {
+      "name": "Written letters highlight in playback order and clear afterwards",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "indep": true,
+        "help": "A0",
+        "sessionTrials": 1,
+        "actualTrials": 1,
+        "highlighted": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "letters": 4,
+        "litAfter": 0,
+        "case": "upper"
+      }
+    },
+    {
+      "name": "Selection works in access mode direct",
+      "ok": true
+    },
+    {
+      "name": "Selection works in access mode dwell",
+      "ok": true
+    },
+    {
+      "name": "Selection works in access mode dwellswitch",
+      "ok": true
+    },
+    {
+      "name": "Selection works in access mode auto",
+      "ok": true
+    },
+    {
+      "name": "Selection works in access mode step1",
+      "ok": true
+    },
+    {
+      "name": "Selection works in access mode step2",
+      "ok": true
+    },
+    {
+      "name": "Repeat remains usable after pausing during initial instruction",
+      "ok": true,
+      "detail": {
+        "before": 3,
+        "after": 4,
+        "paused": false,
+        "locked": false,
+        "suspended": false
+      }
+    },
+    {
+      "name": "No letter help or scanning starts before the instruction ends",
+      "ok": true,
+      "detail": {
+        "during": {
+          "suspended": true,
+          "hints": 0
+        },
+        "after": {
+          "suspended": false,
+          "hints": 0
+        },
+        "minimumDelay": 9000
+      }
+    },
+    {
+      "name": "Disabling every activity cannot generate a disabled task",
+      "ok": true,
+      "detail": [
+        {
+          "kind": "warm",
+          "tpl": null
+        },
+        {
+          "kind": "work",
+          "tpl": null
+        },
+        {
+          "kind": "close",
+          "tpl": null
+        }
+      ]
+    },
+    {
+      "name": "No uncaught browser errors",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "Empty profile form reports an error",
+      "ok": true
+    },
+    {
+      "name": "All ten profile emblems have accessible names",
+      "ok": true
+    },
+    {
+      "name": "Wrong password is rejected",
+      "ok": true
+    },
+    {
+      "name": "Password dialog keeps keyboard focus inside",
+      "ok": true
+    },
+    {
+      "name": "Correct password opens the intended profile",
+      "ok": true
+    },
+    {
+      "name": "All 24 sound-play buttons retain accessible names after icon rendering",
+      "ok": true
+    },
+    {
+      "name": "Browser plays an embedded word and guide clip",
+      "ok": true,
+      "detail": {
+        "audio": true,
+        "video": true
+      }
+    },
+    {
+      "name": "T8 does not overflow horizontally at 1366",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "T11 does not overflow horizontally at 1366",
+      "ok": true,
+      "detail": {
+        "left": 1085.03125,
+        "right": 1325.03125,
+        "top": 201,
+        "bottom": 455.390625,
+        "mainRight": 1057.71875
+      }
+    },
+    {
+      "name": "Empty writing slots are visible at 1366",
+      "ok": true,
+      "detail": [
+        {
+          "text": "",
+          "rect": "{\"x\":535.125,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":581.125,\"bottom\":379.390625,\"left\":535.125}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":593.125,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":639.125,\"bottom\":379.390625,\"left\":593.125}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":651.125,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":697.125,\"bottom\":379.390625,\"left\":651.125}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":709.125,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":755.125,\"bottom\":379.390625,\"left\":709.125}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        }
+      ]
+    },
+    {
+      "name": "Writing controls stay on the right and visible at 1366",
+      "ok": true,
+      "detail": {
+        "left": 1085.03125,
+        "right": 1325.03125,
+        "top": 201,
+        "bottom": 455.390625,
+        "mainRight": 1057.71875
+      }
+    },
+    {
+      "name": "T8 does not overflow horizontally at 1024",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "T11 does not overflow horizontally at 1024",
+      "ok": true,
+      "detail": {
+        "left": 798.734375,
+        "right": 993.28125,
+        "top": 201,
+        "bottom": 455.390625,
+        "mainRight": 778.265625
+      }
+    },
+    {
+      "name": "Empty writing slots are visible at 1024",
+      "ok": true,
+      "detail": [
+        {
+          "text": "",
+          "rect": "{\"x\":368.046875,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":414.046875,\"bottom\":379.390625,\"left\":368.046875}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":426.046875,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":472.046875,\"bottom\":379.390625,\"left\":426.046875}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":484.046875,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":530.046875,\"bottom\":379.390625,\"left\":484.046875}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":542.046875,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":588.046875,\"bottom\":379.390625,\"left\":542.046875}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        }
+      ]
+    },
+    {
+      "name": "Writing controls stay on the right and visible at 1024",
+      "ok": true,
+      "detail": {
+        "left": 798.734375,
+        "right": 993.28125,
+        "top": 201,
+        "bottom": 455.390625,
+        "mainRight": 778.265625
+      }
+    },
+    {
+      "name": "T8 does not overflow horizontally at 390",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "T11 does not overflow horizontally at 390",
+      "ok": true,
+      "detail": {
+        "left": 266,
+        "right": 378,
+        "top": 172,
+        "bottom": 355,
+        "mainRight": 256
+      }
+    },
+    {
+      "name": "Empty writing slots are visible at 390",
+      "ok": true,
+      "detail": [
+        {
+          "text": "",
+          "rect": "{\"x\":73,\"y\":362.1875,\"width\":36,\"height\":50,\"top\":362.1875,\"right\":109,\"bottom\":412.1875,\"left\":73}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":121,\"y\":362.1875,\"width\":36,\"height\":50,\"top\":362.1875,\"right\":157,\"bottom\":412.1875,\"left\":121}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":169,\"y\":362.1875,\"width\":36,\"height\":50,\"top\":362.1875,\"right\":205,\"bottom\":412.1875,\"left\":169}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":217,\"y\":362.1875,\"width\":36,\"height\":50,\"top\":362.1875,\"right\":253,\"bottom\":412.1875,\"left\":217}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        }
+      ]
+    },
+    {
+      "name": "T8 does not overflow horizontally at 320",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "T11 does not overflow horizontally at 320",
+      "ok": true,
+      "detail": {
+        "left": 196,
+        "right": 308,
+        "top": 172,
+        "bottom": 355,
+        "mainRight": 186
+      }
+    },
+    {
+      "name": "Empty writing slots are visible at 320",
+      "ok": true,
+      "detail": [
+        {
+          "text": "",
+          "rect": "{\"x\":86,\"y\":283.390625,\"width\":36,\"height\":50,\"top\":283.390625,\"right\":122,\"bottom\":333.390625,\"left\":86}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":134,\"y\":283.390625,\"width\":36,\"height\":50,\"top\":283.390625,\"right\":170,\"bottom\":333.390625,\"left\":134}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":86,\"y\":345.390625,\"width\":36,\"height\":50,\"top\":345.390625,\"right\":122,\"bottom\":395.390625,\"left\":86}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":134,\"y\":345.390625,\"width\":36,\"height\":50,\"top\":345.390625,\"right\":170,\"bottom\":395.390625,\"left\":134}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        }
+      ]
+    },
+    {
+      "name": "No-guide, static and animated modes obey their settings",
+      "ok": true,
+      "detail": [
+        {
+          "mode": "none",
+          "guides": 0,
+          "reduced": true
+        },
+        {
+          "mode": "static",
+          "guides": 1,
+          "reduced": true
+        },
+        {
+          "mode": "animated",
+          "guides": 1,
+          "reduced": false
+        }
+      ]
+    },
+    {
+      "name": "System reduced-motion preference suppresses animation",
+      "ok": true
+    },
+    {
+      "name": "Unrelated key release does not activate the held switch",
+      "ok": true
+    },
+    {
+      "name": "Releasing the configured switch advances scanning",
+      "ok": true
+    },
+    {
+      "name": "A complete session respects enabled activities and saves all five trials",
+      "ok": true,
+      "detail": {
+        "ended": true,
+        "how": "complet",
+        "trials": 5,
+        "types": [
+          "T8",
+          "T8",
+          "T8",
+          "T8",
+          "T8"
+        ]
+      }
+    },
+    {
+      "name": "Starting with no eligible task returns a clear configuration message",
+      "ok": true,
+      "detail": {
+        "stage": false,
+        "note": "No hi ha cap activitat disponible. Activa una activitat al Pla o revisa les lletres que ja coneix l’alumne."
+      }
+    },
+    {
+      "name": "Mastery requires at least four independent trials in each of two sessions",
+      "ok": true,
+      "detail": {
+        "once": [],
+        "three": [],
+        "twice": [
+          "lletra s"
+        ],
+        "learned": [
+          "a",
+          "s"
+        ]
+      }
+    },
+    {
+      "name": "Equivalent concepts cannot be competing answer options in any style",
+      "ok": true,
+      "detail": [
+        {
+          "style": "contour",
+          "a": "got",
+          "b": "vas",
+          "same": true,
+          "excluded": true
+        },
+        {
+          "style": "contour",
+          "a": "roca",
+          "b": "pedra",
+          "same": true,
+          "excluded": true
+        },
+        {
+          "style": "contour",
+          "a": "fruit",
+          "b": "poma",
+          "same": true,
+          "excluded": true
+        },
+        {
+          "style": "contour",
+          "a": "mona",
+          "b": "mico",
+          "same": true,
+          "excluded": true
+        },
+        {
+          "style": "matte",
+          "a": "got",
+          "b": "vas",
+          "same": true,
+          "excluded": true
+        },
+        {
+          "style": "matte",
+          "a": "roca",
+          "b": "pedra",
+          "same": true,
+          "excluded": true
+        },
+        {
+          "style": "matte",
+          "a": "fruit",
+          "b": "poma",
+          "same": true,
+          "excluded": true
+        },
+        {
+          "style": "matte",
+          "a": "mona",
+          "b": "mico",
+          "same": true,
+          "excluded": true
+        },
+        {
+          "style": "arasaac",
+          "a": "got",
+          "b": "vas",
+          "same": true,
+          "excluded": true
+        },
+        {
+          "style": "arasaac",
+          "a": "roca",
+          "b": "pedra",
+          "same": true,
+          "excluded": true
+        },
+        {
+          "style": "arasaac",
+          "a": "fruit",
+          "b": "poma",
+          "same": true,
+          "excluded": true
+        },
+        {
+          "style": "arasaac",
+          "a": "mona",
+          "b": "mico",
+          "same": true,
+          "excluded": true
+        }
+      ]
+    },
+    {
+      "name": "Rhyme tasks respect excluded words and exhausted word pools",
+      "ok": true,
+      "detail": {
+        "excludedAbsent": true,
+        "none": true
+      }
+    },
+    {
+      "name": "No uncaught errors in extended checks",
+      "ok": true,
+      "detail": []
+    }
+  ],
+  "curriculum_words_missing_graphemes": [
+    {
+      "word": "guix",
+      "missing": [
+        "gu"
+      ]
+    },
+    {
+      "word": "panxa",
+      "missing": [
+        "x"
+      ]
+    },
+    {
+      "word": "jersei",
+      "missing": [
+        "j"
+      ]
+    },
+    {
+      "word": "joia",
+      "missing": [
+        "j"
+      ]
+    },
+    {
+      "word": "jove",
+      "missing": [
+        "j"
+      ]
+    },
+    {
+      "word": "torre",
+      "missing": [
+        "rr"
+      ]
+    },
+    {
+      "word": "carro",
+      "missing": [
+        "rr"
+      ]
+    },
+    {
+      "word": "cotxe",
+      "missing": [
+        "tx"
+      ]
+    },
+    {
+      "word": "sorra",
+      "missing": [
+        "rr"
+      ]
+    },
+    {
+      "word": "gorra",
+      "missing": [
+        "rr"
+      ]
+    },
+    {
+      "word": "tassa",
+      "missing": [
+        "ss"
+      ]
+    },
+    {
+      "word": "caixa",
+      "missing": [
+        "x"
+      ]
+    },
+    {
+      "word": "paquet",
+      "missing": [
+        "qu"
+      ]
+    },
+    {
+      "word": "dutxa",
+      "missing": [
+        "tx"
+      ]
+    },
+    {
+      "word": "bossa",
+      "missing": [
+        "ss"
+      ]
+    },
+    {
+      "word": "vaixell",
+      "missing": [
+        "x"
+      ]
+    },
+    {
+      "word": "metge",
+      "missing": [
+        "tg"
+      ]
+    },
+    {
+      "word": "pluja",
+      "missing": [
+        "j"
+      ]
+    },
+    {
+      "word": "granja",
+      "missing": [
+        "j"
+      ]
+    },
+    {
+      "word": "platja",
+      "missing": [
+        "j"
+      ]
+    },
+    {
+      "word": "bruixa",
+      "missing": [
+        "x"
+      ]
+    },
+    {
+      "word": "pijama",
+      "missing": [
+        "j"
+      ]
+    },
+    {
+      "word": "taronja",
+      "missing": [
+        "j"
+      ]
+    },
+    {
+      "word": "guitarra",
+      "missing": [
+        "gu",
+        "rr"
+      ]
+    },
+    {
+      "word": "esquirol",
+      "missing": [
+        "qu"
+      ]
+    },
+    {
+      "word": "maduixa",
+      "missing": [
+        "x"
+      ]
+    },
+    {
+      "word": "cassola",
+      "missing": [
+        "ss"
+      ]
+    },
+    {
+      "word": "esquena",
+      "missing": [
+        "qu"
+      ]
+    },
+    {
+      "word": "pissarra",
+      "missing": [
+        "ss",
+        "rr"
+      ]
+    },
+    {
+      "word": "motxilla",
+      "missing": [
+        "tx"
+      ]
+    },
+    {
+      "word": "rellotge",
+      "missing": [
+        "tg"
+      ]
+    },
+    {
+      "word": "pallasso",
+      "missing": [
+        "ss"
+      ]
+    },
+    {
+      "word": "forquilla",
+      "missing": [
+        "qu"
+      ]
+    },
+    {
+      "word": "jaqueta",
+      "missing": [
+        "j",
+        "qu"
+      ]
+    },
+    {
+      "word": "formatge",
+      "missing": [
+        "tg"
+      ]
+    },
+    {
+      "word": "orquestra",
+      "missing": [
+        "qu"
+      ]
+    },
+    {
+      "word": "professor",
+      "missing": [
+        "ss"
+      ]
+    },
+    {
+      "word": "gronxador",
+      "missing": [
+        "x"
+      ]
+    }
+  ],
+  "words_above_writing_limit": [
+    {
+      "word": "cristall",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "sardina",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "patinet",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "carpeta",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "tortuga",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "formiga",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "bufanda",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "ganivet",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "taronja",
+      "graphemes": 7,
+      "fullyDecodable": false
+    },
+    {
+      "word": "castanya",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "muntanya",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "esquirol",
+      "graphemes": 7,
+      "fullyDecodable": false
+    },
+    {
+      "word": "maduixa",
+      "graphemes": 7,
+      "fullyDecodable": false
+    },
+    {
+      "word": "faldilla",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "forquilla",
+      "graphemes": 7,
+      "fullyDecodable": false
+    },
+    {
+      "word": "formatge",
+      "graphemes": 7,
+      "fullyDecodable": false
+    },
+    {
+      "word": "bombolla",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "granota",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "finestra",
+      "graphemes": 8,
+      "fullyDecodable": true
+    },
+    {
+      "word": "cocodril",
+      "graphemes": 8,
+      "fullyDecodable": true
+    },
+    {
+      "word": "planeta",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "trompeta",
+      "graphemes": 8,
+      "fullyDecodable": true
+    },
+    {
+      "word": "tricicle",
+      "graphemes": 8,
+      "fullyDecodable": true
+    },
+    {
+      "word": "escombra",
+      "graphemes": 8,
+      "fullyDecodable": true
+    },
+    {
+      "word": "vinagre",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "princesa",
+      "graphemes": 8,
+      "fullyDecodable": true
+    },
+    {
+      "word": "cogombre",
+      "graphemes": 8,
+      "fullyDecodable": true
+    },
+    {
+      "word": "estrella",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "llibreta",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "clarinet",
+      "graphemes": 8,
+      "fullyDecodable": true
+    },
+    {
+      "word": "magrana",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "ciclista",
+      "graphemes": 8,
+      "fullyDecodable": true
+    },
+    {
+      "word": "triangle",
+      "graphemes": 8,
+      "fullyDecodable": true
+    },
+    {
+      "word": "orquestra",
+      "graphemes": 8,
+      "fullyDecodable": false
+    },
+    {
+      "word": "pedrera",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "tramvia",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "fragata",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "padrina",
+      "graphemes": 7,
+      "fullyDecodable": true
+    },
+    {
+      "word": "pollastre",
+      "graphemes": 8,
+      "fullyDecodable": true
+    },
+    {
+      "word": "professor",
+      "graphemes": 8,
+      "fullyDecodable": false
+    },
+    {
+      "word": "escriptor",
+      "graphemes": 9,
+      "fullyDecodable": true
+    },
+    {
+      "word": "gronxador",
+      "graphemes": 9,
+      "fullyDecodable": false
+    }
+  ],
+  "media_counts": {
+    "font/ttf": 2,
+    "image/webp": 623,
+    "image/svg+xml": 2,
+    "image/png": 309,
+    "audio/mpeg": 234,
+    "audio/wav": 602,
+    "video/mp4": 81
+  },
+  "media_failures": [],
+  "audio_out_of_bounds": [],
+  "network_privacy": {
+    "fetchBlocked": true,
+    "beaconQueued": true,
+    "beaconBlocked": true,
+    "directives": [
+      "connect-src",
+      "connect-src",
+      "img-src"
+    ],
+    "events": [
+      {
+        "directive": "connect-src",
+        "uri": "http://127.0.0.1:35735/profile-leak"
+      },
+      {
+        "directive": "connect-src",
+        "uri": "http://127.0.0.1:35735/beacon-leak"
+      },
+      {
+        "directive": "img-src",
+        "uri": "http://127.0.0.1:35735/image-leak?profile=LOCAL-ONLY"
+      }
+    ],
+    "csp": "default-src 'none'; script-src 'sha256-IvIrkMezfIwjbD1p9A14h3GAnmQQIJ8sCsLrGO0Z5sI='; style-src 'unsafe-inline'; img-src data: blob:; media-src data: blob:; font-src data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'; frame-src 'none'; manifest-src 'none'"
+  },
+  "responsive_layouts": [
+    {
+      "width": 1366,
+      "height": 768,
+      "tpl": "T8",
+      "slots": [],
+      "overflow": false,
+      "guideBubbles": [
+        {
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "shadow": "none"
+        }
+      ],
+      "actions": null,
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "tpl": "T11",
+      "slots": [
+        {
+          "text": "",
+          "rect": "{\"x\":535.125,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":581.125,\"bottom\":379.390625,\"left\":535.125}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":593.125,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":639.125,\"bottom\":379.390625,\"left\":593.125}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":651.125,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":697.125,\"bottom\":379.390625,\"left\":651.125}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":709.125,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":755.125,\"bottom\":379.390625,\"left\":709.125}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        }
+      ],
+      "overflow": false,
+      "guideBubbles": [
+        {
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "shadow": "none"
+        }
+      ],
+      "actions": {
+        "left": 1085.03125,
+        "right": 1325.03125,
+        "top": 201,
+        "bottom": 455.390625,
+        "mainRight": 1057.71875
+      },
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      }
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "tpl": "T8",
+      "slots": [],
+      "overflow": false,
+      "guideBubbles": [
+        {
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "shadow": "none"
+        }
+      ],
+      "actions": null,
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      }
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "tpl": "T11",
+      "slots": [
+        {
+          "text": "",
+          "rect": "{\"x\":368.046875,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":414.046875,\"bottom\":379.390625,\"left\":368.046875}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":426.046875,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":472.046875,\"bottom\":379.390625,\"left\":426.046875}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":484.046875,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":530.046875,\"bottom\":379.390625,\"left\":484.046875}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":542.046875,\"y\":321.390625,\"width\":46,\"height\":58,\"top\":321.390625,\"right\":588.046875,\"bottom\":379.390625,\"left\":542.046875}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        }
+      ],
+      "overflow": false,
+      "guideBubbles": [
+        {
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "shadow": "none"
+        }
+      ],
+      "actions": {
+        "left": 798.734375,
+        "right": 993.28125,
+        "top": 201,
+        "bottom": 455.390625,
+        "mainRight": 778.265625
+      },
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "tpl": "T8",
+      "slots": [],
+      "overflow": false,
+      "guideBubbles": [
+        {
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "shadow": "none"
+        }
+      ],
+      "actions": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "tpl": "T11",
+      "slots": [
+        {
+          "text": "",
+          "rect": "{\"x\":73,\"y\":362.1875,\"width\":36,\"height\":50,\"top\":362.1875,\"right\":109,\"bottom\":412.1875,\"left\":73}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":121,\"y\":362.1875,\"width\":36,\"height\":50,\"top\":362.1875,\"right\":157,\"bottom\":412.1875,\"left\":121}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":169,\"y\":362.1875,\"width\":36,\"height\":50,\"top\":362.1875,\"right\":205,\"bottom\":412.1875,\"left\":169}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":217,\"y\":362.1875,\"width\":36,\"height\":50,\"top\":362.1875,\"right\":253,\"bottom\":412.1875,\"left\":217}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        }
+      ],
+      "overflow": false,
+      "guideBubbles": [
+        {
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "shadow": "none"
+        }
+      ],
+      "actions": {
+        "left": 266,
+        "right": 378,
+        "top": 172,
+        "bottom": 355,
+        "mainRight": 256
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "width": 320,
+      "height": 844,
+      "tpl": "T8",
+      "slots": [],
+      "overflow": false,
+      "guideBubbles": [
+        {
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "shadow": "none"
+        }
+      ],
+      "actions": null,
+      "viewport": {
+        "width": 320,
+        "height": 844
+      }
+    },
+    {
+      "width": 320,
+      "height": 844,
+      "tpl": "T11",
+      "slots": [
+        {
+          "text": "",
+          "rect": "{\"x\":86,\"y\":283.390625,\"width\":36,\"height\":50,\"top\":283.390625,\"right\":122,\"bottom\":333.390625,\"left\":86}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":134,\"y\":283.390625,\"width\":36,\"height\":50,\"top\":283.390625,\"right\":170,\"bottom\":333.390625,\"left\":134}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":86,\"y\":345.390625,\"width\":36,\"height\":50,\"top\":345.390625,\"right\":122,\"bottom\":395.390625,\"left\":86}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        },
+        {
+          "text": "",
+          "rect": "{\"x\":134,\"y\":345.390625,\"width\":36,\"height\":50,\"top\":345.390625,\"right\":170,\"bottom\":395.390625,\"left\":134}",
+          "border": "3px solid rgb(23, 103, 107)",
+          "display": "block",
+          "visibility": "visible"
+        }
+      ],
+      "overflow": false,
+      "guideBubbles": [
+        {
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "shadow": "none"
+        }
+      ],
+      "actions": {
+        "left": 196,
+        "right": 308,
+        "top": 172,
+        "bottom": 355,
+        "mainRight": 186
+      },
+      "viewport": {
+        "width": 320,
+        "height": 844
+      }
+    }
+  ],
+  "browser": "138.0.7204.0",
+  "contrast_candidates_by_adult_view": [
+    {
+      "tab": "progress",
+      "overflow": false,
+      "contrast": [],
+      "unlabelled": []
+    },
+    {
+      "tab": "acc",
+      "overflow": false,
+      "contrast": [],
+      "unlabelled": []
+    },
+    {
+      "tab": "pres",
+      "overflow": false,
+      "contrast": [],
+      "unlabelled": []
+    },
+    {
+      "tab": "plan",
+      "overflow": false,
+      "contrast": [],
+      "unlabelled": []
+    },
+    {
+      "tab": "words",
+      "overflow": false,
+      "contrast": [],
+      "unlabelled": []
+    },
+    {
+      "tab": "snd",
+      "overflow": false,
+      "contrast": [],
+      "unlabelled": []
+    },
+    {
+      "tab": "data",
+      "overflow": false,
+      "contrast": [],
+      "unlabelled": []
+    },
+    {
+      "tab": "hist",
+      "overflow": false,
+      "contrast": [],
+      "unlabelled": []
+    }
+  ],
+  "limitations": [
+    "One Chromium engine; not Firefox, Safari or iOS.",
+    "Input modes simulated with pointer and keyboard; no physical eye tracker or switch device.",
+    "No listening review of every phoneme or clinical validation of learning outcomes.",
+    "No inspection of the production hosting or server logs."
+  ]
+}

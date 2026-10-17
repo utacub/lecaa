@@ -1,0 +1,46 @@
+LECAA · EDICIÓ 45 · PRESENTACIÓ I GUIA
+17 d’octubre de 2026
+
+OBRIR
+Descomprimeix el ZIP i obre LECAA.html al navegador.
+La pestanya mostra «v45» i el peu inicial, «Edició 45».
+Les imatges, els àudios, les animacions, les fonts i els logotips estan
+incorporats. No cal connexió per utilitzar els recursos de l’aplicació
+ni llegir la guia. Obrir els DOI i els webs externs sí que requereix Internet.
+
+NOVETATS
+Edició 45: textos de portada actualitzats i icona animal retirada del diàleg d’accés.
+Edició 44: il·lustracions revisades; consulta CANVIS_v44.txt i Verificacio_v44.json.
+A la pàgina inicial hi ha «Què és LECAA» i «Guia i Marc Teòric», abans
+de Crèdits. La guia té vuit apartats il·lustrats, índex, cites navegables
+i trenta referències completes, amb DOI sempre que està disponible.
+GUIA-I-MARC-TEORIC.md conté una còpia llegible del text incorporat.
+CANVIS_v43.txt i Verificacio_v43.json descriuen els canvis i comprovacions.
+S’hi indiquen també els límits de les proves de l’edició 43.
+
+ACTUALITZAR O CANVIAR DE DISPOSITIU
+Obre la versió que conté els teus perfils → Còpies de seguretat → Tots els
+perfils del dispositiu → Descarrega la còpia. Conserva el JSON.
+Obre la versió nova → Còpies de seguretat → Tria el fitxer → Importa els perfils.
+Un altre navegador, ruta local o adreça web pot tenir un espai
+d’emmagatzematge diferent.
+
+PERFILS LOCALS
+Els perfils, el progrés, les fotografies i els àudios personalitzats es desen
+al navegador del dispositiu. LECAA no els envia a un servidor.
+No hi ha comptes en línia ni sincronització automàtica entre dispositius.
+Les còpies es poden fer de tots els perfils alhora o d’un de sol.
+També hi ha «Exporta aquest perfil» a Dades.
+Les còpies restauren perfils nous i conserven els que ja existeixen.
+El fitxer de còpia conté dades personals: conserva’l en privat.
+Si s’esborren les dades del navegador, cal una còpia per recuperar els perfils.
+
+PUBLICACIÓ EN LÍNIA
+Publica l’HTML complet, conservant la política CSP incrustada.
+Els recursos editorials nous també estan dins de LECAA.html.
+
+DOCUMENTACIÓ HISTÒRICA I LLICÈNCIES
+L’auditoria inclosa correspon a l’edició 41 i es conserva com a document
+històric. CANVIS_v42.txt i Verificacio_v42.json corresponen a l’edició 42.
+FONTS-I-LLICENCIES.txt recull atribucions i llicències de components.
+MANIFEST.sha256 conté les sumes dels fitxers d’aquesta edició.

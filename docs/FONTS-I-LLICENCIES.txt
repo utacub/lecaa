@@ -1,0 +1,27 @@
+FONTS I ATRIBUCIONS DE L’EDICIÓ 42
+
+Informació institucional:
+https://www.utac.cat/
+https://www.utac.cat/inici/informacio/
+https://www.fbg.ub.edu/
+
+Logotips oficials:
+UTAC: recurs facilitat anteriorment pel responsable del projecte i ja incorporat.
+UB: PNG en color aportat pel responsable del projecte: Logotip_UB.svg.png
+FBG: PNG transparent aportat pel responsable del projecte: Bosch-i-Gimpera-2048x379_trans.png
+Educació: https://identitatcorporativa.gencat.cat/web/.content/Documentacio/descarregues/dpt/COLOR/Educacio/educacio_h3.png
+Drets Socials: https://identitatcorporativa.gencat.cat/web/.content/Documentacio/descarregues/dpt/COLOR/Drets/drets_socials_h3.png
+
+Llicències de components:
+ARASAAC: https://arasaac.org/terms-of-use
+Creative Commons BY-NC-SA 4.0: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca
+Fonts: https://openfontlicense.org/
+Andika: copyright SIL International, OFL 1.1, text complet dins l’aplicació.
+Manrope: copyright The Manrope Project Authors, OFL 1.1, text complet dins l’aplicació.
+No s’assigna una llicència nova a l’aplicació ni als logotips de tercers.
+
+Referències tècniques:
+World Wide Web Consortium. (s. d.). Content Security Policy Level 3.
+https://www.w3.org/TR/CSP/
+MDN contributors. (2025, 27 de maig). SpeechSynthesisVoice: localService property.
+https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisVoice/localService

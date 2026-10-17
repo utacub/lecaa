@@ -1,0 +1,420 @@
+{
+  "edition": 43,
+  "date": "2026-10-17",
+  "html_bytes": 214198834,
+  "html_sha256": "1833a633386e5122b7639f46ea2f7de1e3864dc36bc448a967133317648baa29",
+  "script_sha256": "3Ls985RE07W+loDrTmWnsiTz2UFKA9+6txXgbUvhrns=",
+  "functional": {
+    "environment": "LinkeDOM; functional DOM checks, not browser rendering or hardware validation",
+    "results": [
+      {
+        "name": "Home inserts both buttons before Credits and reports edition 43",
+        "ok": true
+      },
+      {
+        "name": "About contains four paragraphs and opens the guide in one dialog",
+        "ok": true
+      },
+      {
+        "name": "Eight sections, two evidence categories, eight images, complete references and resolved citation markers",
+        "ok": true
+      },
+      {
+        "name": "Every index button opens and focuses its actual section",
+        "ok": true
+      },
+      {
+        "name": "All inline citations open and focus an existing reference",
+        "ok": true,
+        "details": {
+          "citations": 55
+        }
+      },
+      {
+        "name": "Reference links use permanent DOI or publisher URLs and preserve opener isolation",
+        "ok": true
+      },
+      {
+        "name": "Close button and Escape remove the dialog and restore focus without changing profile data",
+        "ok": true
+      },
+      {
+        "name": "Existing home Credits action still renders all five institutions",
+        "ok": true
+      }
+    ]
+  },
+  "integrity": {
+    "results": [
+      {
+        "name": "All existing embedded resources preserved byte for byte and in order",
+        "ok": true,
+        "details": {
+          "old": 1853,
+          "new": 1861
+        }
+      },
+      {
+        "name": "Exactly eight new embedded illustrations",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Inline script matches the content security policy",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "No new ability to transmit profile data",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Outside the requested pages, styles and version identifiers the application is identical",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "29 DOI registered and matched to the bibliography",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "30 distinct references and eight sections",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Only the two requested evidence categories",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration decodes: comencar",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration is included in the actual HTML: comencar",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration decodes: abast",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration is included in the actual HTML: abast",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration decodes: evidencia",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration is included in the actual HTML: evidencia",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration decodes: activitats",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration is included in the actual HTML: activitats",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration decodes: acces",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration is included in the actual HTML: acces",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration decodes: mes-enlla",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration is included in the actual HTML: mes-enlla",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration decodes: llengues",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration is included in the actual HTML: llengues",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration decodes: limits",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Illustration is included in the actual HTML: limits",
+        "ok": true,
+        "details": null
+      },
+      {
+        "name": "Primary reading and evidence labels have at least 4.5:1 colour contrast",
+        "ok": true,
+        "details": [
+          {
+            "foreground": "#264b50",
+            "background": "#ffffff",
+            "ratio": 9.53
+          },
+          {
+            "foreground": "#2e655c",
+            "background": "#f4f8f5",
+            "ratio": 6.26
+          },
+          {
+            "foreground": "#735719",
+            "background": "#fcf8ef",
+            "ratio": 6.38
+          },
+          {
+            "foreground": "#ffffff",
+            "background": "#17676b",
+            "ratio": 6.59
+          },
+          {
+            "foreground": "#175e63",
+            "background": "#ffffff",
+            "ratio": 7.45
+          }
+        ]
+      }
+    ],
+    "limitations": [
+      "Local browser could not start because Unix sockets are denied by the execution environment. No browser rendering, responsive geometry or real eye-gaze/switch hardware validation is claimed."
+    ]
+  },
+  "references": [
+    {
+      "id": "allor2014",
+      "url": "https://doi.org/10.1177/0014402914522208",
+      "doi": "10.1177/0014402914522208",
+      "verified_title": "Is Scientifically Based Reading Instruction Effective for Students With Below-Average IQs?",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "babb2026",
+      "url": "https://doi.org/10.1044/2025_ajslp-25-00218",
+      "doi": "10.1044/2025_ajslp-25-00218",
+      "verified_title": "Effects of Instruction With the Accessible Literacy Learning App on Three Literacy Skills for Children Who Use Augmentative and Alternative Communication",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "biggs2018",
+      "url": "https://doi.org/10.1352/1944-7558-123.5.443",
+      "doi": "10.1352/1944-7558-123.5.443",
+      "verified_title": "Systematic Review of Interventions Involving Aided AAC Modeling for Children With Complex Communication Needs",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "card2006",
+      "url": "https://doi.org/10.1080/07434610500431694",
+      "doi": "10.1080/07434610500431694",
+      "verified_title": "The phonological awareness abilities of children with cerebral palsy who do not speak",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "caron2021",
+      "url": "https://doi.org/10.1177/1540796921992123",
+      "doi": "10.1177/1540796921992123",
+      "verified_title": "Effects of a Literacy Feature in an Augmentative and Alternative Communication App on Single-Word Reading of Individuals with Severe Autism Spectrum Disorders",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "caron2022",
+      "url": "https://doi.org/10.1044/2022_ajslp-21-00142",
+      "doi": "10.1044/2022_ajslp-21-00142",
+      "verified_title": "Online Training to Improve Service Provider Implementation of Letter–Sound Correspondence Instruction for Individuals Who Use Augmentative and Alternative Communication",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "castles2018",
+      "url": "https://doi.org/10.1177/1529100618772271",
+      "doi": "10.1177/1529100618772271",
+      "verified_title": "Ending the Reading Wars: Reading Acquisition From Novice to Expert",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "collins2024",
+      "url": "https://doi.org/10.1007/s10882-023-09934-4",
+      "doi": "10.1007/s10882-023-09934-4",
+      "verified_title": "AAC &amp; Literacy: A Scoping Review of Print Knowledge Measures for Students who use Aided Augmentative and Alternative Communication",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "ehri2014",
+      "url": "https://doi.org/10.1080/10888438.2013.819356",
+      "doi": "10.1080/10888438.2013.819356",
+      "verified_title": "Orthographic Mapping in the Acquisition of Sight Word Reading, Spelling Memory, and Vocabulary Learning",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "ehri2001",
+      "url": "https://doi.org/10.1598/rrq.36.3.2",
+      "doi": "10.1598/rrq.36.3.2",
+      "verified_title": "Phonemic Awareness Instruction Helps Children Learn to Read: Evidence From the National Reading Panel's Meta‐Analysis",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "erbeli2024",
+      "url": "https://doi.org/10.1080/10888438.2024.2309386",
+      "doi": "10.1080/10888438.2024.2309386",
+      "verified_title": "A Meta-Analysis on the Optimal Cumulative Dosage of Early Phonemic Awareness Instruction",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "erickson2020",
+      "url": "https://products.brookespublishing.com/Comprehensive-Literacy-for-All-P1165.aspx",
+      "doi": null,
+      "verified_title": "Comprehensive literacy for all: Teaching students with significant disabilities to read and write",
+      "verification": "Publisher product page"
+    },
+    {
+      "id": "gonzalez2021",
+      "url": "https://doi.org/10.1080/10888438.2020.1776290",
+      "doi": "10.1080/10888438.2020.1776290",
+      "verified_title": "Connected Phonation is More Effective than Segmented Phonation for Teaching Beginning Readers to Decode Unfamiliar Words",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "hessling2022",
+      "url": "https://doi.org/10.1177/02656590211033013",
+      "doi": "10.1177/02656590211033013",
+      "verified_title": "Phonological awareness intervention using a standard treatment protocol for individuals with Down syndrome",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "holyfield2026",
+      "url": "https://doi.org/10.1080/17549507.2025.2499504",
+      "doi": "10.1080/17549507.2025.2499504",
+      "verified_title": "Effect of AAC technology with embedded literacy supports on the participation of children who are emerging symbolic communicators during shared reading",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "hoover1990",
+      "url": "https://doi.org/10.1007/bf00401799",
+      "doi": "10.1007/bf00401799",
+      "verified_title": "The simple view of reading",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "hulme2012",
+      "url": "https://doi.org/10.1177/0956797611435921",
+      "doi": "10.1177/0956797611435921",
+      "verified_title": "The Causal Role of Phoneme Awareness and Letter-Sound Knowledge in Learning to Read",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "lemons2016",
+      "url": "https://doi.org/10.1177/0040059916662202",
+      "doi": "10.1177/0040059916662202",
+      "verified_title": "10 Research-Based Tips for Enhancing Literacy Instruction for Students With Intellectual Disability",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "leroux2024",
+      "url": "https://doi.org/10.1044/2023_lshss-23-00009",
+      "doi": "10.1044/2023_lshss-23-00009",
+      "verified_title": "Views of Parents on Supporting Language and Literacy for Their Children With Complex Communication Needs",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "light2025",
+      "url": "https://doi.org/10.1080/07434618.2025.2502032",
+      "doi": "10.1080/07434618.2025.2502032",
+      "verified_title": "Overcoming barriers to literacy for individuals who need or use AAC: lived experiences, key research findings, and future directions",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "linder2023",
+      "url": "https://doi.org/10.3389/feduc.2023.1190838",
+      "doi": "10.3389/feduc.2023.1190838",
+      "verified_title": "Effects of adaptations of a phonics-based reading intervention program on reading and spelling skills of students with intellectual disability who require augmentative and alternative communication",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "palmqvist2025",
+      "url": "https://doi.org/10.1080/17483107.2025.2519368",
+      "doi": "10.1080/17483107.2025.2519368",
+      "verified_title": "Comparison of the effects of single- and multicomponent reading instructions on phonological awareness and reading skills for children with intellectual disability in Sweden",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "sargiani2022",
+      "url": "https://doi.org/10.1002/rrq.432",
+      "doi": "10.1002/rrq.432",
+      "verified_title": "Teaching Beginners to Decode Consonant–Vowel Syllables Using Grapheme–Phoneme Subunits Facilitates Reading and Spelling as Compared With Teaching Whole‐Syllable Decoding",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "sennott2016",
+      "url": "https://doi.org/10.1177/1540796916638822",
+      "doi": "10.1177/1540796916638822",
+      "verified_title": "AAC Modeling Intervention Research Review",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "sermier2021",
+      "url": "https://doi.org/10.1016/j.ridd.2021.103883",
+      "doi": "10.1016/j.ridd.2021.103883",
+      "verified_title": "Effects of a phonics-based intervention on the reading skills of students with intellectual disability",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "seymour2003",
+      "url": "https://doi.org/10.1348/000712603321661859",
+      "doi": "10.1348/000712603321661859",
+      "verified_title": "Foundation literacy acquisition in European orthographies",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "share1995",
+      "url": "https://doi.org/10.1016/0010-0277(94)00645-2",
+      "doi": "10.1016/0010-0277(94)00645-2",
+      "verified_title": "Phonological recoding and self-teaching: sine qua non of reading acquisition",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "ukrainetz2011",
+      "url": "https://doi.org/10.1016/j.ecresq.2010.04.006",
+      "doi": "10.1016/j.ecresq.2010.04.006",
+      "verified_title": "The effects of syllable instruction on phonemic awareness in preschoolers",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "ulriksen2026a",
+      "url": "https://doi.org/10.1016/j.ridd.2026.105239",
+      "doi": "10.1016/j.ridd.2026.105239",
+      "verified_title": "Associations between receptive and expressive vocabulary and early literacy in young students with intellectual disabilities using AAC",
+      "verification": "Crossref DOI metadata"
+    },
+    {
+      "id": "ulriksen2026b",
+      "url": "https://doi.org/10.1007/s40489-026-00593-7",
+      "doi": "10.1007/s40489-026-00593-7",
+      "verified_title": "Early Reading Interventions for Children with Intellectual Disabilities Using AAC: A Systematic Review of Single-Case Designs",
+      "verification": "Crossref DOI metadata"
+    }
+  ]
+}

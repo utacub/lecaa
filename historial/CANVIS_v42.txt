@@ -1,0 +1,33 @@
+LECAA · EDICIÓ 42
+16 d’octubre de 2026
+
+QUATRE CANVIS ACORDATS
+1. SO INICIAL I LLETRA I SO
+   Els distractors es filtren pel so: b/v i s/c amb so de /s/ no
+   competeixen amb la resposta correcta. El recompte d’activitats
+   disponibles utilitza els mateixos grups de sons.
+2. EMBLEMES DE PERFIL
+   Deu patrons abstractes amb la paleta existent. S’han conservat
+   els identificadors dels perfils i de les còpies de seguretat.
+3. RIMES
+   Retirada de la família casa/pala de les preguntes de rima.
+   Les dues paraules continuen al corpus de lectura i escriptura.
+4. PRESENTACIÓ I CRÈDITS
+   Nom corregit a «Lectura i Escriptura per a usuaris de Comunicació
+   Augmentativa i Alternativa (LECAA)».
+
+COMPROVACIONS
+144.000 ítems de lletra i so: una única resposta correcta, sense
+grafies equivalents al so objectiu, en totes les etapes de la seqüència.
+20.000 ítems de so inicial: una única resposta correcta i cobertura
+de les preguntes i retorns amb enregistraments d’Anna i Jordi.
+11.000 ítems de rima: parella retirada i exclusions respectades.
+Bancs restringits de paraules: disponibilitat coherent de les activitats.
+Deu emblemes: renderitzats i inspeccionats; identificadors conservats.
+1.853 recursos incrustats: idèntics, en el mateix ordre, a l’edició 41.
+Signatura CSP actualitzada i comprovada. Sintaxi JavaScript comprovada.
+
+Les comprovacions d’aquesta edició se centren en els quatre canvis.
+No s’ha repetit la prova completa al navegador en aquest entorn.
+Verificacio_v42.json conté els resultats i l’abast de les proves.
+L’informe d’auditoria i les evidències anteriors corresponen a l’edició 41.

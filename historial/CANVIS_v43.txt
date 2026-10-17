@@ -1,0 +1,32 @@
+LECAA · EDICIÓ 43 · PRESENTACIÓ I GUIA
+17 d’octubre de 2026
+
+- Dos botons a la pantalla inicial, abans de Crèdits: «Què és LECAA» i
+  «Guia i Marc Teòric».
+- Presentació breu en quatre paràgrafs i accés directe a la guia.
+- Guia revisada en vuit apartats desplegables, amb índex i cites que
+  permeten obrir i consultar la referència corresponent.
+- Només es distingeixen dos àmbits: evidència amb persones que fan servir
+  CAA i evidència procedent d’altres poblacions. S’han eliminat els
+  comentaris que justificaven decisions pròpies de disseny de LECAA.
+- Vuit il·lustracions editorials de guaix i llapis, incrustades al mateix
+  HTML, amb descripcions alternatives.
+- Trenta referències completes: vint-i-nou DOI verificats contra les
+  metadades de Crossref i un enllaç editorial per al llibre.
+- S’han corregit l’ordre dels autors de Collins et al. i les dades de
+  publicació necessàries, i s’han matisat les extrapolacions científiques.
+
+COMPROVACIONS
+Sintaxi de JavaScript, navegació funcional del document, índex, cites,
+obertura i tancament de finestres, retorn del focus, integritat dels
+recursos, descodificació de les il·lustracions i contrast dels colors
+principals. Les proves funcionals s’han fet amb un entorn DOM.
+El navegador local no s’ha pogut iniciar per restriccions de l’entorn:
+no es presenta com a completada una revisió visual en navegador,
+una comprovació de geometria responsive ni una prova amb dispositius reals.
+
+Les comprovacions d’integritat confirmen que els 1.853 recursos
+incrustats anteriors es conserven exactament, en el mateix ordre,
+i que s’hi afegeixen les vuit il·lustracions. Fora de les pàgines noves,
+els seus estils i els identificadors de versió, el fitxer és idèntic
+a l’edició 42. Els algoritmes de les activitats no han canviat.

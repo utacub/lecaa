@@ -1,0 +1,46 @@
+{
+  "tool": "image_gen built-in",
+  "base": "Use case: illustration-story. Create one finished landscape 3:2 editorial illustration for LECAA, matching the supplied reference ONLY in its gouache and coloured pencil textured paper style, warm off-white, petrol teal, sage, muted lavender and ochre palette. Redesign scene as requested, do not preserve old characters. Every learner must unmistakably be a young child aged 5–7, round young face, small hands, short child proportions; adults ONLY teachers or parents. Contemporary Catalan primary school context, naturally varied local appearances, no costumes. Physical device perspective MUST be coherent: screens face the users, if camera sees device back it is opaque with NO icons. Every visible AAC screen or communication board/book uses a dense regular 5 row x 6 column grid of 30 small varied simple pictograms, not a six-cell toy grid. No title, captions, watermark. ",
+  "scenes": [
+    [
+      "about",
+      "mes-enlla",
+      "NEW unique overview scene: a 5-year-old girl with straight honey-blonde bob, mustard shirt, and a 7-year-old boy with short dark brown curls, cobalt blue shirt, sit together on classroom rug by low table, cheerful adult woman teacher alongside reading a picture book held facing children. On low table flat open communication binder with 30 cells PER PAGE, seen obliquely from above. Camera at rear three-quarter over children's shoulders toward book; profiles visible. No tablets. Distinct welcoming composition."
+    ],
+    [
+      "comencar",
+      "comencar",
+      "A clearly SIX-year-old small girl with chestnut straight shoulder-length hair and pale lavender shirt in supportive wheelchair, seated at classroom table with adult male teacher in sage cardigan. Side three-quarter view: girl looks at mounted communication monitor, camera sees ONLY plain opaque dark rear panel, mounting arm visible, no screen or eye tracker on back. Open picture book lies on table. Child proportions unmistakable."
+    ],
+    [
+      "abast",
+      "abast",
+      "Still life only, NO people. Open illustrated picture book showing tree and sun, wooden letter tiles A S L O, yellow pencil, and flat AAC board with 30 pictograms in a precise 5x6 grid, a variety of verbs, people, everyday objects. Gentle three-quarter overhead perspective with all items naturally lying on table."
+    ],
+    [
+      "evidencia",
+      "evidencia",
+      "Replace adult learner with unmistakably five-year-old boy, short light auburn hair, freckles, sage green T-shirt, sitting beside adult female educator with dark bob and glasses in navy cardigan. Teacher records observations in notebook while child selects on AAC tablet resting almost flat on table. Camera over both their shoulders from above, child small profile visible; BOTH child and camera see the same screen surface with dense 5x6 grid. Letter cards and picture book nearby. Adult supports, child is learner."
+    ],
+    [
+      "activitats",
+      "activitats",
+      "Six-year-old girl with dark brown twin short braids, coral pink T-shirt, supportive wheelchair. Adult woman teacher next to her. Child uses large teal switch to select letters. Three physical letter tiles S O L and sun picture on table. No electronic screen needed: remove tablet completely. Child clearly young, small round face and hands. View front-side, warm playful learning."
+    ],
+    [
+      "acces",
+      "acces",
+      "Two unmistakably small six-year-old learners at classroom table, girl short light brown bob and sky blue shirt left, boy short black hair and ochre yellow shirt in supportive wheelchair right. Adult male teacher behind them. Each has a tablet placed in front facing THEM. Camera from across table looking at children's faces sees ONLY TWO OPAQUE TABLET BACKS, rear cameras and stands, ZERO visible screens or pictograms on backs. Boy's hand rests on teal switch, girl reaching around to front touchscreen naturally. Make perspective physically correct. Do not copy erroneous screen orientation of reference."
+    ],
+    [
+      "mes-enlla",
+      "mes-enlla",
+      "Home shared reading with two small children aged 5 and 7 and adult father as facilitator. Girl with auburn ponytail wearing plum shirt, boy with sandy blonde short straight hair wearing soft green shirt. Father holding open picture book towards children, camera from side over shoulder allows seeing book and child profiles. On table open communication binder with dense 5x6 pictogram grid on EACH page. Clearly small children, no teenagers. Natural engagement."
+    ],
+    [
+      "llengues",
+      "llengues",
+      "Still life only no people: globe, headphones, wooden letter tiles A M S, two illustrated storybooks, and one open ring-bound communication book showing 5x6 dense pictogram grid on each page, varied small symbols. No sparse communication grids. Warm paper and subdued teal palette. Coherent overhead three-quarter perspective."
+    ]
+  ]
+}
