@@ -10,17 +10,24 @@ L'aplicació s'ha creat des de la Unitat de Tècniques Augmentatives i Alternati
 
 ## Com fer-la servir
 
-L'aplicació és un únic fitxer, `LECAA.html`, amb totes les imatges, els àudios, les animacions i les fonts incorporats. Un cop descarregat, s'obre amb qualsevol navegador actual i funciona sense connexió.
+- **En línia:** https://utacub.github.io/lecaa/
+- **Descàrrega en un sol fitxer:** https://github.com/utacub/lecaa/releases/latest/download/LECAA.html
+
+El fitxer descarregat porta incorporats totes les imatges, els àudios, les animacions i les fonts. S'obre amb qualsevol navegador actual i funciona sense connexió.
+
+La versió en línia és la mateixa aplicació amb els recursos en fitxers separats, perquè GitHub no admet fitxers de més de 100 MB. Es genera a partir del fitxer únic amb [`eines/separa_recursos.py`](eines/separa_recursos.py).
 
 ## Dades i privacitat
 
-Els perfils, el progrés, les fotografies i els àudios personalitzats es desen només al navegador del dispositiu. LECAA no els envia a cap servidor, no té comptes en línia i no sincronitza dades entre dispositius. Per canviar de dispositiu o de versió, cal exportar una còpia de seguretat des de l'aplicació i importar-la a l'altre lloc. Aquesta còpia conté dades personals i s'ha de conservar en privat.
+Els perfils, el progrés, les fotografies i els àudios personalitzats es desen només al navegador del dispositiu. LECAA no els envia a cap servidor, no té comptes en línia i no sincronitza dades entre dispositius. Les dades de la versió en línia i les del fitxer descarregat es desen en espais diferents del navegador. Per canviar de dispositiu, de versió o de manera d'obrir l'aplicació, cal exportar una còpia de seguretat des de l'aplicació i importar-la a l'altre lloc. Aquesta còpia conté dades personals i s'ha de conservar en privat.
 
 ## Contingut del repositori
 
 | Carpeta | Contingut |
 |---|---|
 | [`docs/`](docs/) | Guia i marc teòric, instruccions (LLEGEIX-ME), fonts i llicències, i sumes de comprovació de l'edició 45. |
+| [`index.html`](index.html), [`recursos/`](recursos/) | Versió en línia de l'aplicació. |
+| [`eines/`](eines/) | Script que genera la versió en línia a partir del fitxer únic. |
 | [`historial/`](historial/) | Canvis i verificacions de les edicions 42 a 45, auditoria de l'edició 41 i indicacions de les il·lustracions. |
 
 ## Llicències
