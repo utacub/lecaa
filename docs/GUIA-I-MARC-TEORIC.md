@@ -4,7 +4,7 @@ Lectura i Escriptura per a usuaris de Comunicació Augmentativa i Alternativa (L
 
 LECAA és un recurs complementari. No és un mètode complet d’ensenyament de la lectura i l’escriptura ni substitueix la intervenció educativa, la lectura compartida, l’escriptura amb finalitats comunicatives o el treball de vocabulari i comprensió. A la Guia i Marc Teòric trobaràs els fonaments i les pràctiques que permeten situar-lo dins d’un ensenyament més ampli.
 
-Els fonaments que es presenten a la guia provenen de dos àmbits: estudis amb persones que fan servir comunicació augmentativa i alternativa (CAA) i recerca amb altres poblacions. Aquesta distinció permet valorar fins on es poden aplicar els resultats. LECAA, com a aplicació, encara no disposa d’estudis propis d’eficàcia: els resultats obtinguts amb altres intervencions no demostren l’eficàcia de LECAA.
+Els fonaments que es presenten a la guia provenen de dos àmbits: estudis amb persones que fan servir comunicació augmentativa i alternativa (CAA) i recerca amb altres poblacions. LECAA, com a aplicació, no compta amb evidència pròpia, però el seu disseny s’ha basat en tota l’evidència científica disponible en el moment de la seva creació.
 
 L’aplicació s’ha creat des de la Unitat de Tècniques Augmentatives i Alternatives de Comunicació (UTAC), amb eines d’intel·ligència artificial. És també un exemple de com aquestes eines poden contribuir a crear recursos educatius accessibles. Les institucions, les eines utilitzades i les llicències es poden consultar als Crèdits.
 
@@ -285,7 +285,7 @@ Els fonaments de la guia ajuden a interpretar el recurs, però no substitueixen 
 
 ### LECAA no té estudis propis d’eficàcia
 
-No es disposa d’un estudi que estableixi l’eficàcia de LECAA, per a quins perfils és útil o quina intensitat d’ús necessita. Els resultats de les intervencions citades corresponen als seus participants, materials i procediments. No s’han de presentar com a resultats de LECAA.
+No es disposa d’un estudi que estableixi l’eficàcia de LECAA, per a quins perfils és útil o quina intensitat d’ús necessita. LECAA tan sols s’ha basat en l’evidència disponible per dissenyar el programa.
 
 **Evidència amb persones que fan servir CAA · Abast de les dades disponibles**
 
