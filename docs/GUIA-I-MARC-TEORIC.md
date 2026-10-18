@@ -263,7 +263,7 @@ Una adaptació lingüística ha de revisar els materials, les correspondències 
 
 ### Aquesta versió és en català
 
-La guia descriu el fitxer català de LECAA que l’acompanya. No pressuposa que hi hagi altres versions lingüístiques verificades ni que traduir les pantalles sigui suficient per obtenir-les.
+LECAA està disponible en català i castellà, però descarregant l’arxiu HTML, qui hi tingui interès, pot adaptar-lo a altres idiomes fent servir eines d’IA equivalents a les descrites als Crèdits.
 
 **Evidència procedent d’altres poblacions · L’ortografia modifica les demandes d’aprenentatge**
 
