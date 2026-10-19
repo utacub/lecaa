@@ -144,9 +144,9 @@ Google. (s. d.). *Información sobre modelos de Google Flow y funciones compatib
 
 MDN contributors. (2026, 12 d’octubre). *Window: localStorage property*. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 
-Unitat de Tècniques Augmentatives i Alternatives de Comunicació. (2026a). *LECAA* (edició 40) [Aplicació web]. Fitxer del projecte auditat.
+Unitat de Tècniques Augmentatives de Comunicació. (2026a). *LECAA* (edició 40) [Aplicació web]. Fitxer del projecte auditat.
 
-Unitat de Tècniques Augmentatives i Alternatives de Comunicació. (2026b). *LECAA* (edició 41) [Aplicació web]. Versió corregida durant aquesta auditoria.
+Unitat de Tècniques Augmentatives de Comunicació. (2026b). *LECAA* (edició 41) [Aplicació web]. Versió corregida durant aquesta auditoria.
 
 World Wide Web Consortium. (2024, 12 de desembre). *Web Content Accessibility Guidelines (WCAG) 2.2*. https://www.w3.org/TR/WCAG22/
 

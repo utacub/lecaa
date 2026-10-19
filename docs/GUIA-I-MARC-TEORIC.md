@@ -6,7 +6,7 @@ LECAA és un recurs complementari. No és un mètode complet d’ensenyament de 
 
 Els fonaments que es presenten a la guia provenen de dos àmbits: estudis amb persones que fan servir comunicació augmentativa i alternativa (CAA) i recerca amb altres poblacions. LECAA, com a aplicació, no compta amb evidència pròpia, però el seu disseny s’ha basat en tota l’evidència científica disponible en el moment de la seva creació.
 
-L’aplicació s’ha creat des de la Unitat de Tècniques Augmentatives i Alternatives de Comunicació (UTAC), amb eines d’intel·ligència artificial. És també un exemple de com aquestes eines poden contribuir a crear recursos educatius accessibles. Les institucions, les eines utilitzades i les llicències es poden consultar als Crèdits.
+L’aplicació s’ha creat des de la Unitat de Tècniques Augmentatives de Comunicació (UTAC), amb eines d’intel·ligència artificial. És també un exemple de com aquestes eines poden contribuir a crear recursos educatius accessibles. Les institucions, les eines utilitzades i les llicències es poden consultar als Crèdits.
 
 # Guia i Marc Teòric
 

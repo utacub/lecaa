@@ -6,7 +6,7 @@ LECAA és una aplicació web per practicar les bases del codi escrit en català.
 
 LECAA és un recurs complementari. No és un mètode complet d'ensenyament de la lectura i l'escriptura, ni substitueix la intervenció educativa, la lectura compartida, l'escriptura amb finalitats comunicatives o el treball de vocabulari i comprensió. Com a aplicació, no compta amb evidència pròpia, però el seu disseny s'ha basat en tota l'evidència científica disponible en el moment de la seva creació, que es resumeix a la [Guia i Marc Teòric](docs/GUIA-I-MARC-TEORIC.md).
 
-L'aplicació s'ha creat des de la Unitat de Tècniques Augmentatives i Alternatives de Comunicació (UTAC) amb eines d'intel·ligència artificial.
+L'aplicació s'ha creat des de la Unitat de Tècniques Augmentatives de Comunicació (UTAC) amb eines d'intel·ligència artificial.
 
 ## Com fer-la servir
 
