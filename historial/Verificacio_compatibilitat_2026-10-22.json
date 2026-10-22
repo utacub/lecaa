@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-22",
+  "base_commit": "b2222518c5081e3a327151bdd6af6dd7a05d40a9",
+  "layout": {
+    "chromium": {
+      "version": "153.0.8010.0",
+      "cases": 588,
+      "clipped": 0,
+      "horizontal": 0
+    },
+    "firefox": {
+      "version": "153.0",
+      "cases": 210,
+      "clipped": 0,
+      "horizontal": 0
+    },
+    "webkit": {
+      "version": "26.5",
+      "cases": 210,
+      "clipped": 0,
+      "horizontal": 0
+    }
+  },
+  "total_layout_cases": 1008,
+  "functional_chromium": "passed",
+  "offline_retry_and_upgrade": "passed",
+  "physical_device_matrix": "not executed",
+  "sha256": {
+    "index.html": "d088784cbc0cff7b9f0d7bfeb2adcf83c8c51041ae644795c6eec856492df4dd",
+    "pwa.js": "e11220bbf2f0f852d0a602ed0f285ec157996957c06f191fcdcc300382144d3c",
+    "sw.js": "bead167cbd1de972a458d11745adc47d05d427efd65550efbc254b39ecf2b16e",
+    "eines/ajusta_compatibilitat.py": "2719affced5bd70c6f7413eb8dd96cd7d1df6463bbf2be41cef11e9cf748e61d",
+    "eines/afegeix_pwa.py": "488c9034803ba79359d8bd55a6771eb4432f8a320ea1f286fb2a307631c3ce13",
+    "eines/pwa/pwa.js": "e11220bbf2f0f852d0a602ed0f285ec157996957c06f191fcdcc300382144d3c",
+    "eines/pwa/sw.js": "a799630f5a805ff2c88be8bed1e9d24a9572a507b868dd6b1e55dd6cb855fb26",
+    "eines/proves_compatibilitat.cjs": "e81e5fc73f7c3acb23c9437c544e807564aec7f6bc73cf0f37942c25e2f9366f"
+  }
+}

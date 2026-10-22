@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="ca"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-nSb1/w4e2eHynQ9VspvnxTupklZzQg4w1fQ6WsOgXQ0='; style-src 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'self'; frame-src 'none'; manifest-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-5bUPfVWc4eYeEOzTL9hSEnioh9aM1zLN/oxeuJvw8mo='; style-src 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'self'; frame-src 'none'; manifest-src 'self'">
 <meta name="referrer" content="no-referrer"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="lecaa-revision" content="2026-10-17-presentation-v45">
+<meta name="lecaa-revision" content="2026-10-22-layout-offline-fix-v45">
 <title>LECAA · v45</title>
 <meta name="description" content="Aplicació per aprendre a llegir i escriure en català, pensada per a alumnes que usen CAA">
 
@@ -640,6 +640,23 @@ button:disabled>*{opacity:1}
 @media(max-width:400px){.guide-index{grid-template-columns:minmax(0,1fr)}.guide-section-title{font-size:.93rem}}
 @media(forced-colors:active){.guide-evidence,.guide-evidence-key span,.guide-section,.guide-index{border-color:CanvasText}.guide-section[open]>summary{border-color:CanvasText}.guide-dialog .guide-citation{color:LinkText}}
 
+
+/* Fit desktop/tablet tasks to their actual workspace; keep touch targets square. */
+@media(min-width:701px){
+ .stage.task-banded .answers{flex-wrap:nowrap;min-width:0;max-width:100%;width:100%;align-items:flex-start;padding-inline:14px}
+ .stage.task-banded .answers .tile{flex:none;width:var(--fit-choice,var(--tile));height:var(--fit-choice,var(--tile));max-width:none;max-height:none}
+ .stage.task-banded .answers .tile .let{font-size:min(calc(var(--tile)*.55),calc(var(--fit-choice,var(--tile))*.55))}
+ .stage.task-banded .answers .tile .lbl{font-size:min(calc(var(--tile)*.19),calc(var(--fit-choice,var(--tile))*.19))}
+ .stage.task-banded[data-task-type=T2] .stim-pic{width:var(--fit-picture,calc(var(--tile)*1.15));height:var(--fit-picture,calc(var(--tile)*1.15))}
+ .stage.task-banded .writing-main>.kbd{width:100%}
+ .stage.task-banded .writing-main .krow{width:100%;flex-wrap:nowrap}
+ .stage.task-banded .writing-main .key{flex:none;min-width:0;width:var(--fit-key-width,calc(var(--tile)*.58));height:var(--fit-key-height,calc(var(--tile)*.62));padding-inline:2px;font-size:var(--fit-key-font,calc(var(--tile)*.34))}
+ .stage.task-banded .writing-main .slots{width:100%;flex-wrap:nowrap;min-width:0}
+ .stage.task-banded .writing-main .slot{flex:0 1 calc(var(--tile)*.5);min-width:0;font-size:var(--fit-slot-font,calc(var(--tile)*.5))}
+}
+.pwa-status{flex-basis:100%;margin:0;max-width:none;line-height:1.5}
+.pwa-status button{margin-left:10px}
+
 </style>
 
 <link rel="manifest" href="manifest.webmanifest">
@@ -903,7 +920,7 @@ const Access = {
     this.level = null; this.idx = -1; this.cycle = 0; this.stopped = false;
     if (this.isScan()) this.startScan(opts.delay || 0);
   },
-  refresh() { if (this.root) { const r = this.root, c = this.onCue; this.bind(r, { onCue: c, suspend: this.suspended }); } },
+  refresh() { TaskLayout.schedule(); if (this.root) { const r = this.root, c = this.onCue; this.bind(r, { onCue: c, suspend: this.suspended }); } },
   wire(e) {
     if (e._wired) return; e._wired = true;
     e.addEventListener("click", ev => {
@@ -934,8 +951,8 @@ const Access = {
     if (this.focusedEl) this.focusedEl.classList.remove("focused");
     this.focusedEl = null;
     if (!e) return;
-    if (isGroup) { (e.box || e.group[0].parentElement).classList.add("group-focused"); if (this.cfg.cueAudio && this.onCue && e.group[0].dataset.groupcue) return this.onCue(e.group[0].dataset.groupcue); return; }
-    this.focusedEl = e; e.classList.add("focused");
+    if (isGroup) { TaskLayout.keepVisible(e.box || e.group[0]); (e.box || e.group[0].parentElement).classList.add("group-focused"); if (this.cfg.cueAudio && this.onCue && e.group[0].dataset.groupcue) return this.onCue(e.group[0].dataset.groupcue); return; }
+    this.focusedEl = e; e.classList.add("focused"); TaskLayout.keepVisible(e);
     if (this.cfg.cueAudio && this.onCue && e.dataset.cue) return this.onCue(e.dataset.cue);
   },
   current() { const list = this.level ? this.level.group : this.entries; return list[this.idx]; },
@@ -2205,6 +2222,7 @@ function mountStage(nodes,taskType=null){
  if(stage.classList.contains('welcome')){stage.style.setProperty('--classroom-image','url("'+CLASSROOM_ART+'")');for(const b of stage.querySelectorAll('.guide-bubble')){const img=b.querySelector('img');if(img)img.src=GUIDE_CUTOUTS[b.dataset.guide]||img.src;}}else stage.style.removeProperty('--classroom-image');
  for(const n of (main.querySelector('.task-content')||main).children){if(!n.classList.contains('mentor'))n.classList.add('task-arrival');}
  Access.locked=false;clearTimeout(Access.lockTimer);Access.stats={sels:0,cycles:0};
+ TaskLayout.watch(stage);
  return{stage,main,ctl};
 }
 
@@ -2934,6 +2952,69 @@ function showLECAAGuide(){
  body.append(h('header',{class:'guide-introduction'},h('p',{class:'guide-kicker'},'UTAC · '+GUIDE_DOCUMENT.updated),h('h3',{},'Aprendre a llegir i a escriure amb CAA'),h('p',{},'Una guia per situar LECAA dins d’un ensenyament més ampli i consultar els fonaments de les activitats. Pots obrir cada apartat per separat.'),h('div',{class:'guide-evidence-key'},h('span',{class:'caa'},'Evidència amb CAA'),h('span',{class:'altres'},'Evidència d’altres poblacions'))),h('div',{class:'guide-layout'},index,h('article',{class:'guide-article','aria-label':'Contingut de la guia'},...sections,refs)));
 }
 
+
+// The available task band, rather than device identity, determines target sizes.
+const TaskLayout={
+ stage:null,observer:null,frame:0,
+ watch(stage){
+  this.stage=stage;this.observer?.disconnect();
+  const band=stage.querySelector('.task-band');
+  if(typeof ResizeObserver!=='undefined'&&band){this.observer=new ResizeObserver(()=>this.schedule());this.observer.observe(band);}
+  this.fit();this.schedule();
+ },
+ schedule(){cancelAnimationFrame(this.frame);this.frame=requestAnimationFrame(()=>this.fit());},
+ fit(){
+  const stage=this.stage;if(!stage?.isConnected)return;
+  for(const key of ['--fit-choice','--fit-picture','--fit-key-width','--fit-key-height','--fit-key-font','--fit-slot-font'])stage.style.removeProperty(key);
+  if(!matchMedia('(min-width:701px)').matches)return;
+  const band=stage.querySelector('.task-band'),content=band?.querySelector('.task-content');if(!content)return;
+  const px=(e,k)=>parseFloat(getComputedStyle(e)[k])||0;
+  const raw=getComputedStyle(stage).getPropertyValue('--tile').trim();
+  const preferred=parseFloat(raw)*(raw.endsWith('rem')?px(document.documentElement,'fontSize'):1);
+  const height=band.clientHeight-px(band,'paddingTop')-px(band,'paddingBottom');
+  const set=(k,v)=>stage.style.setProperty(k,Math.floor(v*100)/100+'px');
+  const answers=content.querySelector(':scope > .answers');
+  if(answers){
+   const count=answers.children.length,gap=px(answers,'columnGap');
+   const width=(answers.clientWidth-px(answers,'paddingLeft')-px(answers,'paddingRight')-gap*(count-1))/count;
+   const padding=px(content,'paddingTop')+px(content,'paddingBottom')+px(answers,'paddingTop')+px(answers,'paddingBottom');
+   const contentGap=px(content,'rowGap');let cap;
+   if(stage.dataset.taskType==='T2'){
+    cap=(height-padding-contentGap)/2.15;
+    const stimulus=content.querySelector('.stimulus'),pictures=stimulus?.children.length||2;
+    const pictureWidth=(content.clientWidth-px(stimulus,'columnGap')*(pictures-1))/pictures;
+    const size=Math.max(44,Math.min(preferred,width,cap,pictureWidth/1.15));
+    set('--fit-choice',size);set('--fit-picture',size*1.15);
+   }else{
+    const others=[...content.children].filter(e=>e!==answers);
+    cap=height-padding-others.reduce((sum,e)=>sum+e.getBoundingClientRect().height,0)-contentGap*others.length;
+    set('--fit-choice',Math.max(44,Math.min(preferred,width,cap)));
+   }
+  }
+  const writing=content.querySelector('.writing-main'),row=writing?.querySelector('.krow');
+  if(row?.children.length){
+   const n=row.children.length,gap=px(row,'columnGap');
+   const width=Math.max(24,Math.min(preferred*.58,(writing.clientWidth-gap*(n-1))/n));
+   const key=row.firstElementChild,normalHeight=px(key,'height');
+   set('--fit-key-width',width);set('--fit-key-height',Math.min(normalHeight,Math.max(56,width*1.1)));
+   set('--fit-key-font',Math.min(preferred*.34,width*.65));
+   const slots=writing.querySelector('.slots');
+   if(slots?.children.length){const sw=(slots.clientWidth-px(slots,'columnGap')*(slots.children.length-1))/slots.children.length;set('--fit-slot-font',Math.min(preferred*.5,sw*1.15));}
+  }
+ },
+ keepVisible(element){
+  // Scroll only the activity, never the page or the fixed session controls.
+  const band=element?.closest?.('.task-band');if(!band)return;
+  const r=element.getBoundingClientRect(),b=band.getBoundingClientRect(),margin=14;
+  if(r.top<b.top+margin)band.scrollTop-=b.top+margin-r.top;
+  else if(r.bottom>b.bottom-margin)band.scrollTop+=r.bottom-b.bottom+margin;
+  if(r.left<b.left+margin)band.scrollLeft-=b.left+margin-r.left;
+  else if(r.right>b.right-margin)band.scrollLeft+=r.right-b.right+margin;
+ }
+};
+window.addEventListener('resize',()=>TaskLayout.schedule());
+document.fonts?.ready.then(()=>TaskLayout.schedule());
+document.fonts?.addEventListener('loadingdone',()=>TaskLayout.schedule());
 
 /* ===== Boot ===== */
 (async function boot() {

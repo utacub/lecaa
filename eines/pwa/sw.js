@@ -18,13 +18,43 @@ self.addEventListener('activate', e => {
   })());
 });
 
-// Desa en segon pla tots els recursos que encara no són a la memòria cau.
-async function precarrega() {
-  const c = await caches.open(RECURSOS);
-  for (const r of LLISTA_RECURSOS) {
-    if (await c.match(r)) continue;
-    try { const resp = await fetch(r); if (resp.ok) await c.put(r, resp); } catch (err) { return; }
+// Report actual cached resources; installation alone does not imply offline readiness.
+let preparant = null;
+async function publicaEstat(state, done) {
+  const data = { type: 'lecaa-offline-status', version: VERSIO, state, done, total: LLISTA_RECURSOS.length };
+  for (const client of await self.clients.matchAll({ type: 'window', includeUncontrolled: true })) {
+    if (client.url.startsWith(self.registration.scope)) client.postMessage(data);
   }
+}
+function precarrega() {
+  if (preparant) return preparant;
+  preparant = (async () => {
+    let done = 0;
+    try {
+      const c = await caches.open(RECURSOS), pendents = [];
+      for (const r of LLISTA_RECURSOS) {
+        if (await c.match(r)) done++; else pendents.push(r);
+      }
+      await publicaEstat('preparing', done);
+      let next = 0, failed = false, lastReport = 0;
+      // A small pool avoids serial round trips without flooding tablets.
+      await Promise.all(Array.from({ length: 3 }, async () => {
+        while (!failed && next < pendents.length) {
+          const r = pendents[next++];
+          try {
+            const response = await fetch(r);
+            if (!response.ok) throw new Error('HTTP ' + response.status);
+            await c.put(r, response); done++;
+            if (Date.now() - lastReport > 400) {
+              lastReport = Date.now(); await publicaEstat('preparing', done);
+            }
+          } catch (error) { failed = true; }
+        }
+      }));
+      await publicaEstat(done === LLISTA_RECURSOS.length ? 'ready' : 'error', done);
+    } catch (error) { await publicaEstat('error', done); }
+  })().finally(() => { preparant = null; });
+  return preparant;
 }
 self.addEventListener('message', e => { if (e.data === 'precarrega') e.waitUntil(precarrega()); });
 
