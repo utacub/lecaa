@@ -1,0 +1,17 @@
+{
+  "name": "LECAA · Lectura i Escriptura per a usuaris de CAA",
+  "short_name": "LECAA",
+  "description": "Aplicació per aprendre a llegir i escriure en català, pensada per a alumnes que usen CAA",
+  "lang": "ca",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#17676b",
+  "icons": [
+    { "src": "icones/icona-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icones/icona-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icones/icona-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

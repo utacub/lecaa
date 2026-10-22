@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ca"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-nSb1/w4e2eHynQ9VspvnxTupklZzQg4w1fQ6WsOgXQ0='; style-src 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'; frame-src 'none'; manifest-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-nSb1/w4e2eHynQ9VspvnxTupklZzQg4w1fQ6WsOgXQ0='; style-src 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'self'; frame-src 'none'; manifest-src 'self'">
 <meta name="referrer" content="no-referrer"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="lecaa-revision" content="2026-10-17-presentation-v45">
 <title>LECAA · v45</title>
@@ -642,6 +642,7 @@ button:disabled>*{opacity:1}
 
 </style>
 
+<link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#17676b">
 <link rel="icon" type="image/svg+xml" href="recursos/147fe3c4f2e8b5533c2f.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="recursos/c0f07bce177aa5f99c3c.png">
@@ -2947,6 +2948,7 @@ function showLECAAGuide(){
 })();
 
 </script>
+<script src="pwa.js"></script>
 
 </body></html>
 </body></html>

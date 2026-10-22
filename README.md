@@ -15,7 +15,7 @@ L'aplicació s'ha creat des de la Unitat de Tècniques Augmentatives de Comunica
 
 El fitxer descarregat porta incorporats totes les imatges, els àudios, les animacions i les fonts. S'obre amb qualsevol navegador actual i funciona sense connexió.
 
-La versió en línia és la mateixa aplicació amb els recursos en fitxers separats, perquè GitHub no admet fitxers de més de 100 MB. Es genera a partir del fitxer únic amb [`eines/separa_recursos.py`](eines/separa_recursos.py).
+La versió en línia és la mateixa aplicació amb els recursos en fitxers separats, perquè GitHub no admet fitxers de més de 100 MB. Es genera a partir del fitxer únic amb [`eines/separa_recursos.py`](eines/separa_recursos.py), i després [`eines/afegeix_pwa.py`](eines/afegeix_pwa.py) la fa instal·lable com a aplicació (PWA) i utilitzable sense connexió.
 
 ## Dades i privacitat
 
