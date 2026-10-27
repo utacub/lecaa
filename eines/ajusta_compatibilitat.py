@@ -106,5 +106,6 @@ s=s.replace('/* ===== Boot ===== */',logic+'/* ===== Boot ===== */',1)
 # Keep the restrictive CSP valid after changing the inline application code.
 script=re.search(r'<script>\n([\s\S]*?)</script>',s).group(0)[len('<script>'):-len('</script>')]
 hash=base64.b64encode(hashlib.sha256(script.encode()).digest()).decode()
-s=re.sub(r"script-src 'self' 'sha256-[^']+'",f"script-src 'self' 'sha256-{hash}'",s,count=1)
+s,n=re.subn(r"(script-src (?:'self' )?)'sha256-[^']+'",lambda m:m.group(1)+f"'sha256-{hash}'",s,count=1)
+assert n==1,'La política CSP no té el hash del script'
 p.write_text(s)
