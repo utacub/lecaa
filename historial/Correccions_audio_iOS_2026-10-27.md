@@ -22,4 +22,4 @@ Data: 27 d'octubre de 2026. Mateixa correcció que LECAA CAST 0.6.7.
 - PWA: 1.859 recursos desats; sense connexió, la veu sona i el peu indica «Disponible sense connexió».
 - `node eines/proves_compatibilitat.cjs chromium`: 210 casos de disposició sense retalls i selecció amb dos commutadors correcta.
 
-No s'ha provat en un iPad o un iPhone reals. Cal confirmar-ho amb Safari en un dispositiu.
+Comprovat en un iPad real per la UTAC el 27 d'octubre de 2026: les locucions sonen. No s'ha provat en un iPhone.
