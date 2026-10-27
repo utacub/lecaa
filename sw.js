@@ -1,5 +1,5 @@
 // LECAA: treballador de servei per instal·lar l'aplicació i fer-la servir sense connexió.
-const VERSIO = '95fd5d36437e';
+const VERSIO = 'b175f6cc8421';
 const NUCLI = 'lecaa-nucli-' + VERSIO;
 const RECURSOS = 'lecaa-recursos';
 const FITXERS_NUCLI = ['./', 'index.html', 'manifest.webmanifest', 'pwa.js', 'icones/icona-192.png', 'icones/icona-512.png', 'icones/icona-maskable-512.png'];
