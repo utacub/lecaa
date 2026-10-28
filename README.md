@@ -11,15 +11,12 @@ L'aplicació s'ha creat des de la Unitat de Tècniques Augmentatives de Comunica
 ## Com fer-la servir
 
 - **En línia:** https://utacub.github.io/lecaa/
-- **Descàrrega en un sol fitxer:** https://github.com/utacub/lecaa/releases/latest/download/LECAA.html
 
-El fitxer descarregat porta incorporats totes les imatges, els àudios, les animacions i les fonts. S'obre amb qualsevol navegador actual i funciona sense connexió.
-
-La versió en línia és la mateixa aplicació amb els recursos en fitxers separats, perquè GitHub no admet fitxers de més de 100 MB. Es genera a partir del fitxer únic amb [`eines/separa_recursos.py`](eines/separa_recursos.py), i després [`eines/afegeix_pwa.py`](eines/afegeix_pwa.py) la fa instal·lable com a aplicació (PWA) i utilitzable sense connexió. Aquest pas aplica també els ajustos de disposició i focus de [`eines/ajusta_compatibilitat.py`](eines/ajusta_compatibilitat.py). El peu de la pantalla d’adult indica el progrés de descàrrega i mostra «Disponible sense connexió» quan tots els recursos estan desats. A la pàgina inicial, el botó «Instal·lar» obre la instal·lació del navegador o, quan el navegador no ho permet des de la pàgina (Safari a l’iPad i l’iPhone), n’explica els passos.
+La versió en línia es genera a partir d'un fitxer HTML únic que porta incorporats totes les imatges, els àudios, les animacions i les fonts. Com que GitHub no admet fitxers de més de 100 MB, [`eines/separa_recursos.py`](eines/separa_recursos.py) en separa els recursos, i després [`eines/afegeix_pwa.py`](eines/afegeix_pwa.py) la fa instal·lable com a aplicació (PWA) i utilitzable sense connexió. Aquest pas aplica també els ajustos de disposició i focus de [`eines/ajusta_compatibilitat.py`](eines/ajusta_compatibilitat.py). El peu de la pantalla d’adult indica el progrés de descàrrega i mostra «Disponible sense connexió» quan tots els recursos estan desats. A la pàgina inicial, el botó «Instal·lar» obre la instal·lació del navegador o, quan el navegador no ho permet des de la pàgina (Safari a l’iPad i l’iPhone), n’explica els passos.
 
 ## Dades i privacitat
 
-Els perfils, el progrés, les fotografies i els àudios personalitzats es desen només al navegador del dispositiu. LECAA no els envia a cap servidor, no té comptes en línia i no sincronitza dades entre dispositius. Les dades de la versió en línia i les del fitxer descarregat es desen en espais diferents del navegador. Per canviar de dispositiu, de versió o de manera d'obrir l'aplicació, cal exportar una còpia de seguretat des de l'aplicació i importar-la a l'altre lloc. Aquesta còpia conté dades personals i s'ha de conservar en privat.
+Els perfils, el progrés, les fotografies i els àudios personalitzats es desen només al navegador del dispositiu. LECAA no els envia a cap servidor, no té comptes en línia i no sincronitza dades entre dispositius. A l'iPad i l'iPhone, l'aplicació instal·lada desa les dades a part de Safari. Per canviar de dispositiu, de navegador o de manera d'obrir l'aplicació, cal exportar una còpia de seguretat des de l'aplicació i importar-la a l'altre lloc. Aquesta còpia conté dades personals i s'ha de conservar en privat.
 
 ## Contingut del repositori
 
