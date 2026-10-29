@@ -1,8 +1,8 @@
 # LECAA
 
-**Lectura i Escriptura per a usuaris de Comunicació Augmentativa i Alternativa** · Edició 45 (17 d'octubre de 2026)
+**Lectura i Escriptura per a usuaris de Comunicació Augmentativa i Alternativa** · Edició 45.2 (29 d'octubre de 2026)
 
-LECAA és una aplicació web per practicar les bases del codi escrit en català. Inclou activitats de so inicial, rima, correspondència entre lletres i sons, lectura de paraules i construcció de paraules amb un teclat reduït. Totes les respostes es donen seleccionant, de manera que no cal respondre oralment. Es pot fer servir amb selecció directa, ratolí, lector ocular o un o dos commutadors.
+LECAA és una aplicació web per practicar les bases del codi escrit en català. Inclou activitats de so inicial, rima, correspondència entre lletres i sons, lectura de paraules i construcció de paraules amb un teclat reduït. A «Lletra i so» i «Construeix la paraula», el botó «Activar teclat sencer» permet escriure la resposta amb tot el teclat. Totes les respostes es donen seleccionant, de manera que no cal respondre oralment. Es pot fer servir amb selecció directa, ratolí, lector ocular o un o dos commutadors.
 
 LECAA és un recurs complementari. No és un mètode complet d'ensenyament de la lectura i l'escriptura, ni substitueix la intervenció educativa, la lectura compartida, l'escriptura amb finalitats comunicatives o el treball de vocabulari i comprensió. Com a aplicació, no compta amb evidència pròpia, però el seu disseny s'ha basat en tota l'evidència científica disponible en el moment de la seva creació, que es resumeix a la [Guia i Marc Teòric](docs/GUIA-I-MARC-TEORIC.md).
 
@@ -13,6 +13,15 @@ L'aplicació s'ha creat des de la Unitat de Tècniques Augmentatives de Comunica
 - **En línia:** https://utacub.github.io/lecaa/
 
 La versió en línia es genera a partir d'un fitxer HTML únic que porta incorporats totes les imatges, els àudios, les animacions i les fonts. Com que GitHub no admet fitxers de més de 100 MB, [`eines/separa_recursos.py`](eines/separa_recursos.py) en separa els recursos, i després [`eines/afegeix_pwa.py`](eines/afegeix_pwa.py) la fa instal·lable com a aplicació (PWA) i utilitzable sense connexió. Aquest pas aplica també els ajustos de disposició i focus de [`eines/ajusta_compatibilitat.py`](eines/ajusta_compatibilitat.py). El peu de la pantalla d’adult indica el progrés de descàrrega i mostra «Disponible sense connexió» quan tots els recursos estan desats. A la pàgina inicial, el botó «Instal·lar» obre la instal·lació del navegador o, quan el navegador no ho permet des de la pàgina (Safari a l’iPad i l’iPhone), n’explica els passos.
+
+### Teclat sencer
+
+A «Lletra i so» i «Construeix la paraula» hi ha el botó «Activar teclat sencer». Quan s'activa, el botó queda premut i diu «Desactivar teclat sencer», i les opcions o el teclat reduït deixen lloc a l'escriptura amb tot el teclat:
+
+- Amb selecció directa o ratolí, s'escriu amb el teclat físic, si n'hi ha, o amb el teclat en pantalla del dispositiu.
+- Amb encercament o lector ocular, apareix un teclat de LECAA en pantalla. L'encercament passa primer per blocs, després per files i després per tecles.
+
+L'opció es desa per a cada alumne i per a cada activitat per separat. També es pot canviar a Opcions avançades › Pla, on el selector «Teclat en pantalla» permet triar el teclat de LECAA o el del sistema. Els canvis i les comprovacions són a [`historial/Canvis_v45.2_2026-10-29.md`](historial/Canvis_v45.2_2026-10-29.md).
 
 ## Dades i privacitat
 
@@ -25,7 +34,7 @@ Els perfils, el progrés, les fotografies i els àudios personalitzats es desen 
 | [`docs/`](docs/) | Guia i marc teòric, instruccions (LLEGEIX-ME), fonts i llicències, i sumes de comprovació de l'edició 45. |
 | [`index.html`](index.html), [`recursos/`](recursos/) | Versió en línia de l'aplicació. |
 | [`eines/`](eines/) | Script que genera la versió en línia a partir del fitxer únic. |
-| [`historial/`](historial/) | Canvis i verificacions de les edicions 42 a 45, auditoria de l'edició 41 i indicacions de les il·lustracions. |
+| [`historial/`](historial/) | Canvis i verificacions de les edicions 42 a 45.2, auditoria de l'edició 41 i indicacions de les il·lustracions. |
 
 ## Llicències
 

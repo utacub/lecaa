@@ -28,9 +28,9 @@ css='''
 '''
 s=s.replace('</style>',css+'\n</style>',1)
 s=s.replace('content="2026-10-17-presentation-v45"','content="2026-10-22-layout-offline-fix-v45"',1)
-needle='    if (isGroup) { (e.box || e.group[0].parentElement).classList.add("group-focused");'
+needle='    if (isGroup) { const lead = e.lead || e.group[0];'
 assert needle in s
-s=s.replace(needle,'    if (isGroup) { TaskLayout.keepVisible(e.box || e.group[0]); (e.box || e.group[0].parentElement).classList.add("group-focused");',1)
+s=s.replace(needle,needle+' TaskLayout.keepVisible(e.box || lead);',1)
 needle='    this.focusedEl = e; e.classList.add("focused");'
 assert needle in s;s=s.replace(needle,needle+' TaskLayout.keepVisible(e);',1)
 needle='  refresh() { if (this.root) { const r = this.root, c = this.onCue;'
@@ -57,7 +57,8 @@ const TaskLayout={
   const preferred=parseFloat(raw)*(raw.endsWith('rem')?px(document.documentElement,'fontSize'):1);
   const height=band.clientHeight-px(band,'paddingTop')-px(band,'paddingBottom');
   const set=(k,v)=>stage.style.setProperty(k,Math.floor(v*100)/100+'px');
-  const answers=content.querySelector(':scope > .answers');
+  // With the full keyboard option, Lletra i so keeps its options inside the writing layout.
+  const answers=content.querySelector(':scope > .answers')||content.querySelector('.fk-area > .answers');
   if(answers){
    const count=answers.children.length,gap=px(answers,'columnGap');
    const width=(answers.clientWidth-px(answers,'paddingLeft')-px(answers,'paddingRight')-gap*(count-1))/count;
@@ -70,21 +71,24 @@ const TaskLayout={
     const size=Math.max(44,Math.min(preferred,width,cap,pictureWidth/1.15));
     set('--fit-choice',size);set('--fit-picture',size*1.15);
    }else{
-    const others=[...content.children].filter(e=>e!==answers);
+    const holder=answers.parentElement===content?content:answers.closest('.writing-main');
+    const others=[...holder.children].filter(e=>!e.contains(answers)&&e.offsetParent!==null);
     cap=height-padding-others.reduce((sum,e)=>sum+e.getBoundingClientRect().height,0)-contentGap*others.length;
     set('--fit-choice',Math.max(44,Math.min(preferred,width,cap)));
    }
   }
-  const writing=content.querySelector('.writing-main'),row=writing?.querySelector('.krow');
-  if(row?.children.length){
+  // The reduced keyboard only; the full keyboard has its own sizes.
+  const writing=content.querySelector('.writing-main'),row=writing?.querySelector('.kbd:not(.fk-kbd) .krow');
+  if(row?.children.length&&row.offsetParent!==null){
    const n=row.children.length,gap=px(row,'columnGap');
    const width=Math.max(24,Math.min(preferred*.58,(writing.clientWidth-gap*(n-1))/n));
    const key=row.firstElementChild,normalHeight=px(key,'height');
    set('--fit-key-width',width);set('--fit-key-height',Math.min(normalHeight,Math.max(56,width*1.1)));
    set('--fit-key-font',Math.min(preferred*.34,width*.65));
-   const slots=writing.querySelector('.slots');
-   if(slots?.children.length){const sw=(slots.clientWidth-px(slots,'columnGap')*(slots.children.length-1))/slots.children.length;set('--fit-slot-font',Math.min(preferred*.5,sw*1.15));}
   }
+  // Letters must also fit the slot height (58px on short screens), with the reduced or the full keyboard.
+  const slots=writing?.querySelector('.slots');
+  if(slots?.children.length&&slots.offsetParent!==null){const sw=(slots.clientWidth-px(slots,'columnGap')*(slots.children.length-1))/slots.children.length;set('--fit-slot-font',Math.min(preferred*.5,sw*1.15,px(slots.firstElementChild,'height')/1.25));}
  },
  keepVisible(element){
   // Scroll only the activity, never the page or the fixed session controls.

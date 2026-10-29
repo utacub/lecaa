@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="ca"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-e50MjCzCpHfpC3gtiPXazY5Mp72g0JnalGbov8w5kko='; style-src 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'self'; frame-src 'none'; manifest-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-qV5444M+2QDHJNW+QqoXLUwWV0jKmGoNA+Z441b2+lg='; style-src 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'self'; frame-src 'none'; manifest-src 'self'">
 <meta name="referrer" content="no-referrer"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="lecaa-revision" content="2026-10-22-layout-offline-fix-v45">
-<title>LECAA · v45</title>
+<meta name="lecaa-revision" content="2026-10-29-teclat-sencer-v45.2">
+<title>LECAA · v45.2</title>
 <meta name="description" content="Aplicació per aprendre a llegir i escriure en català, pensada per a alumnes que usen CAA">
 
 
@@ -640,6 +640,53 @@ button:disabled>*{opacity:1}
 @media(max-width:400px){.guide-index{grid-template-columns:minmax(0,1fr)}.guide-section-title{font-size:.93rem}}
 @media(forced-colors:active){.guide-evidence,.guide-evidence-key span,.guide-section,.guide-index{border-color:CanvasText}.guide-section[open]>summary{border-color:CanvasText}.guide-dialog .guide-citation{color:LinkText}}
 
+/* 45.2: full keyboard option in Lletra i so (T8) and Construeix la paraula (T11). */
+.key.hint{border-color:var(--focus);box-shadow:0 0 0 5px var(--focus-soft)}
+.fk-toggle{gap:10px}
+.fk-switch{flex:none;position:relative;width:46px;height:26px;border-radius:13px;background:color-mix(in srgb,var(--ink) 24%,var(--surface));transition:background-color .15s}
+.fk-knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0005;transition:left .15s}
+.fk-toggle.on{background-color:var(--mint);border-color:var(--accent);box-shadow:inset 0 3px 7px #193c4024,0 1px 0 var(--depth)}
+.fk-toggle.on>*{translate:0 3px}
+.fk-toggle.on .fk-switch{background:var(--accent)}
+.fk-toggle.on .fk-knob{left:23px}
+.fk-field{position:relative;display:grid;justify-items:center;max-width:100%}
+.fk-field.fk-typing{padding:10px 18px 6px;border:2px dashed color-mix(in srgb,var(--accent) 45%,transparent);border-radius:16px;background:color-mix(in srgb,var(--surface) 75%,transparent);cursor:text}
+.fk-field.fk-typing:focus-within{border-style:solid;border-color:var(--accent);box-shadow:0 0 0 4px var(--focus-soft)}
+.fk-input{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;border:0;opacity:0;font-size:16px;cursor:text}
+.fk-hint{font-family:var(--font-ui);font-size:.85rem;color:var(--muted);margin-top:4px}
+.fk-field:focus-within .fk-hint{visibility:hidden}
+.fk-answer .slot{min-width:calc(var(--tile)*.9);padding:0 8px}
+.fk-layout .writing-main{align-self:center}
+.writing-main>.fk-area{width:100%;container-type:inline-size}
+.fk-kbd{--fk-key:clamp(28px,4vw,58px);--fk-gap:clamp(3px,.6vw,7px);display:grid;justify-items:start;gap:var(--fk-gap);width:max-content;max-width:100%;margin-inline:auto;padding:4px}
+@supports (width:1cqw){.fk-kbd{--fk-key:min(58px,calc((100cqw - 90px)/10.75));--fk-gap:clamp(3px,1cqw,7px)}}
+.kbd .fk-row,.stage.task-banded .writing-main .krow.fk-row{flex-wrap:nowrap;justify-content:flex-start;gap:var(--fk-gap);width:auto}
+.fk-half{display:flex;gap:var(--fk-gap);border-radius:12px}
+/* Scanning in the app keyboard colours the keys instead of drawing frames. */
+.fk-half.group-focused{outline:none}
+.fk-half.group-focused .key{background-color:var(--focus-soft);background-image:none;border-color:var(--focus)}
+.fk-kbd .key.focused{outline:none!important;box-shadow:inset 0 1px 0 #ffffff80,0 6px 0 var(--depth)!important;background-color:color-mix(in srgb,var(--focus) 60%,#fff);background-image:none;border-color:var(--focus)}
+.kbd .fk-r1{padding-left:calc(var(--fk-key)*.3)}
+.kbd .fk-r2{padding-left:calc(var(--fk-key)*.75)}
+.stage .writing-main .fk-kbd .key,.stage.task-banded .writing-main .fk-kbd .key{flex:none;width:var(--fk-key);min-width:0;height:clamp(40px,6.4vh,58px);font-size:clamp(1.2rem,3.4vh,1.9rem);padding:0}
+.writing-main:has(.fk-kbd){gap:8px}
+.writing-main:has(.fk-kbd) .stim-pic,.build-stage .writing-main:has(.fk-kbd) .stim-pic{width:clamp(64px,11vh,108px);height:clamp(64px,11vh,108px)}
+@media(max-width:700px){.fk-field.fk-typing{padding:8px 10px 4px}
+ .writing-layout.fk-layout,.writing-layout:has(.fk-kbd){grid-template-columns:minmax(0,1fr)}
+ .fk-layout>.writing-actions,.writing-layout:has(.fk-kbd)>.writing-actions{flex-direction:row;flex-wrap:wrap;justify-content:center;position:static}
+ .writing-layout.fk-layout>.writing-actions .key.fn,.writing-layout:has(.fk-kbd)>.writing-actions .key.fn{flex:1 1 0;width:auto;max-width:180px;min-height:50px;padding:6px 4px;font-size:.78rem}
+ .writing-layout:has(.fk-kbd)>.writing-actions{flex-wrap:nowrap;gap:6px}
+ .stage .writing-main .fk-kbd .key,.stage.task-banded .writing-main .fk-kbd .key{height:clamp(34px,5.6vh,48px);font-size:clamp(1rem,3vh,1.5rem)}
+ @supports (width:1cqw){.fk-kbd{--fk-key:min(48px,calc((100cqw - 50px)/10.5))}}
+ .kbd .fk-r1{padding-left:calc(var(--fk-key)*.2)}.kbd .fk-r2{padding-left:calc(var(--fk-key)*.5)}
+ .writing-main:has(.fk-kbd) .stim-pic,.build-stage .writing-main:has(.fk-kbd) .stim-pic{width:clamp(56px,9vh,90px);height:clamp(56px,9vh,90px)}
+ .writing-actions .fk-toggle{flex-direction:column;gap:5px}
+ .fk-switch{width:38px;height:22px}.fk-knob{width:16px;height:16px}.fk-toggle.on .fk-knob{left:19px}}
+/* The answer slots sit inside .fk-field: keep them as wide as before (full row, centred), and give the typing box room for its letters. */
+.writing-main>.fk-field:not(.fk-typing){width:100%;justify-items:stretch}
+@media(min-width:701px){.stage.task-banded .writing-main .fk-typing .slot{flex:0 0 auto;width:calc(var(--tile)*.5)}
+ .fk-typing>.slots{flex-wrap:wrap;justify-content:center;row-gap:6px}}
+
 
 /* Fit desktop/tablet tasks to their actual workspace; keep touch targets square. */
 @media(min-width:701px){
@@ -913,8 +960,14 @@ const Access = {
     for (const e of els) {
       const g = e.dataset.group;
       if (!g) { this.entries.push(e); continue; }
-      if (!groups.has(g)) { const ent = { group: [], box: root.querySelector(`[data-groupbox="${g}"]`) || e.parentElement }; groups.set(g, ent); this.entries.push(ent); }
-      groups.get(g).group.push(e);
+      // A path such as "fk0/r1" nests groups (block, then row, then key).
+      let list = this.entries, parent = null, path = "";
+      for (const part of g.split("/")) {
+        path = path ? path + "/" + part : part;
+        if (!groups.has(path)) { const ent = { group: [], parent, lead: e, box: root.querySelector(`[data-groupbox="${path}"]`) || (path === g ? e.parentElement : null) }; groups.set(path, ent); list.push(ent); }
+        parent = groups.get(path); list = parent.group;
+      }
+      list.push(e);
     }
     for (const e of els) this.wire(e);
     this.level = null; this.idx = -1; this.cycle = 0; this.stopped = false;
@@ -951,7 +1004,7 @@ const Access = {
     if (this.focusedEl) this.focusedEl.classList.remove("focused");
     this.focusedEl = null;
     if (!e) return;
-    if (isGroup) { TaskLayout.keepVisible(e.box || e.group[0]); (e.box || e.group[0].parentElement).classList.add("group-focused"); if (this.cfg.cueAudio && this.onCue && e.group[0].dataset.groupcue) return this.onCue(e.group[0].dataset.groupcue); return; }
+    if (isGroup) { const lead = e.lead || e.group[0]; TaskLayout.keepVisible(e.box || lead); (e.box ? [e.box] : e.group.map(x => x.box).filter(Boolean)).forEach(b => b.classList.add("group-focused")); if (this.cfg.cueAudio && this.onCue && lead.dataset.groupcue) return this.onCue(lead.dataset.groupcue); return; }
     this.focusedEl = e; e.classList.add("focused"); TaskLayout.keepVisible(e);
     if (this.cfg.cueAudio && this.onCue && e.dataset.cue) return this.onCue(e.dataset.cue);
   },
@@ -983,7 +1036,7 @@ const Access = {
     if (this.idx >= list.length) {
       this.idx = 0; this.cycle++; this.stats.cycles++;
       if (this.cycle >= this.cfg.cycles) {
-        if (this.level) { this.level = null; this.idx = 0; this.cycle = 0; }
+        if (this.level) { this.level = this.level.parent || null; this.idx = 0; this.cycle = 0; }
         else if (auto) { this.stopped = true; this.setFocus(null); return; }
       }
     }
@@ -1006,8 +1059,9 @@ const Access = {
   choose() {
     const cur = this.current(); if (!cur) return;
     if (cur.group) {
-      if (cur.group.length === 1) { this.select(cur.group[0]); return; }
-      this.level = cur; this.idx = -1; this.cycle = 0;
+      let g = cur; while (g.group.length === 1 && g.group[0].group) g = g.group[0];
+      if (g.group.length === 1) { this.select(g.group[0]); return; }
+      this.level = g; this.idx = -1; this.cycle = 0;
       document.querySelectorAll(".group-focused").forEach(x => x.classList.remove("group-focused"));
       clearTimeout(this.timer);
       if (this.cfg.mode === "auto") this.advance(true); else this.advance(false);
@@ -1392,6 +1446,51 @@ async function lightLetters(w,withSound,elements=null){
  }finally{LetterHighlights.clear(owner);if(withSound)GuideMotion.speech--;}
 }
 
+/* 45.2: optional full keyboard in Lletra i so (T8) and Construeix la paraula (T11), remembered per learner and activity.
+   Direct selection types with the device keyboard (physical or on screen); scanning and gaze use the app keyboard. */
+const FullKeyboard={
+ // One QWERTY keyboard with the Catalan layout; each row is split into its left and right half, the two scan blocks.
+ rows:[[['q','w','e','r','t'],['y','u','i','o','p']],[['a','s','d','f','g'],['h','j','k','l','ç']],[['z','x','c','v'],['b','n','m']]],
+ names:{T8:'Lletra i so',T11:'Construeix la paraula'},
+ on(p,tpl){return !!p.pres.fullKeyboard?.[tpl];},
+ // The activity button and the Pla tab change the same setting.
+ set(p,tpl,value,who='alumne'){p.pres.fullKeyboard={...(p.pres.fullKeyboard||{}),[tpl]:!!value};logChange(p,'Teclat sencer a «'+this.names[tpl]+'»: '+(value?'activat':'desactivat')+'.',who);Store.save();},
+ // Automatic: device keyboard with direct selection, app keyboard with scanning and gaze. The Pla tab can choose one.
+ own(p){const k=p.pres.screenKeyboard;return k==='app'||k!=='system'&&(p.access?.mode||'direct')!=='direct';},
+ clean(text){return String(text||'').normalize('NFC').toLocaleLowerCase('ca').replace(/[^a-zçàèéíïòóúü·]/g,'').slice(0,24);},
+ // Same isolated sound of the method in central Catalan: b/v, s/ss/c/ç, c/k/qu, g/gu, g/j, x/ix, tx/ig, r/rr.
+ sameSound(answer,target){const a=ISOLATED_SOUND_BLOCKS[answer==='ç'?'c·':answer],b=ISOLATED_SOUND_BLOCKS[target];return !!a&&a===b;},
+ toggle(act){const b=h('button',{class:'key fn fk-toggle','data-sel':'','data-group':'k2','aria-pressed':'false'},h('span',{class:'fk-switch','aria-hidden':'true'},h('span',{class:'fk-knob'})),h('span',{class:'fk-label'}));b._act=act;return b;},
+ paint(b,on){if(!b)return;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');b.querySelector('.fk-label').textContent=on?'Desactivar teclat sencer':'Activar teclat sencer';},
+ // App keyboard for switch and gaze access: left or right half, then row, then key.
+ keyboard(onKey){return h('div',{class:'kbd fk-kbd'},...this.rows.map((halves,r)=>h('div',{class:'krow fk-row fk-r'+r},...halves.map((keys,b)=>h('span',{class:'fk-half','data-groupbox':'fk'+b+'/r'+r},...keys.map(ch=>{const key=h('button',{class:'key','data-sel':'','data-group':'fk'+b+'/r'+r,'data-v':ch,'aria-label':'Lletra '+ch},ch);key._act=()=>onKey(ch);return key;}))))));},
+ // Hidden field over the answer: a tap opens the keyboard of the device.
+ input(field,value,label,onInput,onDone){
+  const input=h('input',{class:'fk-input',type:'text',inputmode:'text',enterkeyhint:'done',autocomplete:'off',autocapitalize:'none',autocorrect:'off',spellcheck:'false',lang:'ca','aria-label':label});
+  input.value=value;input.addEventListener('input',ev=>onInput(ev.isComposing));input.addEventListener('compositionend',()=>onInput(false));
+  input.addEventListener('keydown',ev=>{if(ev.key==='Enter'){ev.preventDefault();onDone();}});
+  field.append(input,h('span',{class:'fk-hint','aria-hidden':'true'},'Toca aquí i escriu amb el teclat.'));return input;
+ },
+ // Physical keyboard while the hidden field has no focus, or beside the app keyboard (switch keys are already taken).
+ listen(active,input,type,done){
+  const f=ev=>{
+   if(!active()||ev.defaultPrevented||ev.ctrlKey||ev.metaKey||ev.altKey||document.querySelector('.overlay'))return;
+   const t=ev.target,field=input();if(t===field||t&&(/INPUT|TEXTAREA|SELECT/.test(t.tagName)||t.isContentEditable))return;
+   const k=ev.key;
+   if(/^[a-zçàèéíïòóúü·]$/i.test(k)){ev.preventDefault();field?.focus({preventScroll:true});type(k);}
+   else if(k==='Backspace'){ev.preventDefault();type(null);}
+   else if(k==='Enter'&&(!t?.closest?.('button,a')||t.closest('.fk-kbd'))){ev.preventDefault();done();}
+  };
+  document.addEventListener('keydown',f);return()=>document.removeEventListener('keydown',f);
+ }
+};
+function fullKeyboardPlan(p,rerender){
+ const any=FullKeyboard.on(p,'T8')||FullKeyboard.on(p,'T11');
+ return[...['T8','T11'].map(tpl=>chk('Teclat sencer a «'+FullKeyboard.names[tpl]+'»',FullKeyboard.on(p,tpl),v=>{FullKeyboard.set(p,tpl,v,'adult');rerender();})),
+  h('p',{class:'muted',style:'font-size:12px;line-height:1.5;margin:0'},'L’alumne també el pot activar i desactivar amb el botó «Activar teclat sencer» de l’activitat. Tots dos canvien la mateixa opció.'),
+  ...(any?[field('Teclat en pantalla',sel(p.pres.screenKeyboard||'auto',[['auto','Automàtic segons l’accés'],['app','Teclat de LECAA'],['system','Teclat del sistema operatiu']],v=>{p.pres.screenKeyboard=v;save(p,'Teclat en pantalla: '+{auto:'automàtic',app:'teclat de LECAA',system:'teclat del sistema operatiu'}[v]);rerender();}),'Automàtic: teclat del sistema amb selecció directa i teclat de LECAA amb encercament o lector ocular. Amb encercament o lector ocular, el teclat del sistema només es pot fer servir si el dispositiu ofereix el seu propi accés. Amb qualsevol opció també es pot escriure amb un teclat físic.')]:[])];
+}
+
 /* ----- generic choice template runner (T1, T2, T8, T9) ----- */
 
 /* Adult-controlled repetition and help. Legacy profiles keep adaptive timing. */
@@ -1436,7 +1535,50 @@ function runChoice(it) {
       const t = h("button", { class: "tile" + (o.cls ? " " + o.cls : ""), "data-sel": "", "data-v": o.value, "aria-label": it.cueOptions ? o.cue || o.value : "opció", "data-cue": it.cueOptions ? (o.cue || "") : null }, o.node || h("span", { class: "wrd" }, o.value));
       t._act = () => choose(o.value, t); ans.append(t); return t;
     });
-    nodes.push(ans);
+    // Full keyboard in T8: the options give way to a typed answer. Supports 3 and 4 bring the options back.
+    const fkTpl = it.tpl === "T8" ? "T8" : null, fkOwn = FullKeyboard.own(p);
+    let full = !!fkTpl && FullKeyboard.on(p, fkTpl), fkReveal = 0, fullText = "", firstAnswer = null, fkInput = null, fkSlots = null, fkStop = null;
+    const fullUI = () => full && fkReveal < 3;
+    const fkMode = () => fullUI() ? (fkOwn ? "teclat-sencer-app" : "teclat-sencer-dispositiu") : "opcions" + (full ? "-per-ajuda" : "");
+    const fkField = fkTpl ? h("div", { class: "fk-field" }) : null, fkArea = fkTpl ? h("div", { class: "fk-area" }) : null;
+    const fkActions = fkTpl ? h("div", { class: "krow writing-actions fk-actions", "data-groupbox": "k2" }) : null, fkToggle = fkTpl ? FullKeyboard.toggle(fkSwitch) : null;
+    const fkFn = (label, act, cue) => { const b = h("button", { class: "key fn", "data-sel": "", "data-group": "k2", "data-cue": cue }, label); b._act = act; return b; };
+    function fkRender() {
+      const showFull = fullUI();
+      if (fkInput && document.activeElement === fkInput) fkInput.blur();
+      fkInput = null;
+      if (showFull) {
+        fkSlots = h("div", { class: "slots fk-answer", "aria-live": "polite" }); fkField.replaceChildren(fkSlots);
+        fkArea.replaceChildren(...(fkOwn ? [FullKeyboard.keyboard(ch => fkType(fullText + ch, "teclat-app"))] : [])); fkDraw();
+        fkActions.replaceChildren(fkFn("⌫ Esborra", () => fkType(fullText.slice(0, -1), "esborra"), "Esborra"), fkFn("✔ Fet", fkDone, "Fet"), fkToggle);
+      } else { fkSlots = null; fkField.replaceChildren(); fkArea.replaceChildren(ans); fkActions.replaceChildren(fkToggle); }
+      fkArea.closest(".stage")?.classList.toggle("build-stage", showFull);
+      fkField.classList.toggle("fk-typing", showFull && !fkOwn);
+      if (showFull && !fkOwn) fkInput = FullKeyboard.input(fkField, fullText, "Escriu la lletra", fkFromInput, fkDone);
+      for (const box of [fkField, fkArea]) box.style.display = box.childElementCount ? "" : "none";
+      FullKeyboard.paint(fkToggle, full);
+    }
+    function fkDraw() { fkSlots?.replaceChildren(h("span", { class: "slot" }, fullText)); }
+    function fkSet(text, composing = false) { fullText = text; if (fkInput && !composing && fkInput.value !== text) fkInput.value = text; fkDraw(); }
+    function fkType(text, source, composing = false) {
+      text = FullKeyboard.clean(text);
+      if (done || S.paused || text === fullText) return false;
+      fkSet(text, composing); schedule(); return true;
+    }
+    function fkFromInput(composing) { if (fkInput && !fkType(fkInput.value, "teclat-dispositiu", composing) && !composing && fkInput.value !== fullText) fkInput.value = fullText; }
+    function fkDone() { if (fullText) choose(fullText, null); }
+    function fkSwitch() {
+      if (done) return;
+      full = !full; FullKeyboard.set(p, fkTpl, full); fullText = "";
+      fkRender(); Access.refresh();
+      if (fkInput) fkInput.focus({ preventScroll: true });
+      schedule();
+    }
+    if (fkTpl) {
+      nodes.push(h("div", { class: "writing-layout fk-layout" }, h("div", { class: "writing-main" }, fkField, fkArea), fkActions));
+      fkRender();
+      fkStop = FullKeyboard.listen(() => !done && S === presentationSession && !S.ended && fullUI(), () => fkInput, k => fkType(k === null ? fullText.slice(0, -1) : fullText + k, "teclat-dispositiu"), fkDone);
+    } else nodes.push(ans);
     mountStage(nodes,it.tpl);
     let help = 0, firstErr = null, errors = 0, done = false, listens = 0, timer = null, t0 = 0, sels = 0, model = false;
     const rec = { id: uid(), sid: S.sid, t: Date.now(), tpl: it.tpl, ex: it.ex, skill: it.skill, target: it.target, word: it.word || null, kind: it.kind, s: it.s != null ? "S" + it.s : null, options: opts.map(o => o.value), access: p.access.mode, itemVer: 1, valid: true };
@@ -1447,7 +1589,8 @@ function runChoice(it) {
       GuideMotion.cue(lvl===1?4:5);
       help = Math.max(help, lvl);
       if (lvl === 1) await say();
-      if (lvl === 2) { if(it.hint)await it.hint(2); await Voice.say(it.prompt, { rate: 0.75 }); }
+      if (lvl === 2) { if (fullUI()) [...showG(it.correct)].forEach(ch => fkArea.querySelector(`[data-v="${CSS.escape(ch)}"]`)?.classList.add("hint")); else if(it.hint)await it.hint(2); await Voice.say(it.prompt, { rate: 0.75 }); }
+      if (lvl >= 3 && fullUI()) { fkReveal = lvl; fkSet(""); fkRender(); Access.refresh(); }
       if (lvl === 3) {
         const others = tiles.filter(t => t.dataset.v !== it.correct);
         const keep = pick(others); others.forEach(t => { if (t !== keep) t.classList.add("dim"); });
@@ -1468,14 +1611,15 @@ function runChoice(it) {
         supportBusy=true;
         try{if(TaskSupport.mode(p)==='repeat'){GuideMotion.cue(4);await say();}else await applyHelp(help+1);}
         finally{supportBusy=false;schedule();}
-      }, TaskSupport.delay(p));
+      }, TaskSupport.delay(p, fullUI() ? (fkOwn ? 2 : 1.6) : 1));
     };
     S.onListen=async()=>{if(done||supportBusy)return;clearTimeout(timer);supportBusy=true;listens++;try{GuideMotion.cue(4);await say();}finally{supportBusy=false;schedule();}};
     S.onHelp=async()=>{if(done||supportBusy)return;clearTimeout(timer);supportBusy=true;try{await applyHelp(Math.max(2,Math.min(4,help+1)));}finally{supportBusy=false;schedule();}};
     const finish = ok => {
-      done = true; clearTimeout(timer);
+      done = true; clearTimeout(timer); fkStop?.();
+      if (fkTpl) rec.input = rec.input || fkMode();
       Object.assign(rec, {
-        answer: firstErr ?? it.correct, ok, indep: ok && help === 0 && (it.s == null || it.s === 0),
+        answer: firstErr ?? firstAnswer ?? it.correct, ok, indep: ok && help === 0 && (it.s == null || it.s === 0),
         help: "A" + help, err: firstErr != null ? (it.tpl === "T8" ? "ERR-LLETRA" : it.tpl === "T9" ? errorCode(it.correct, firstErr) : "ERR-" + it.tpl) : null,
         rt: Date.now() - t0, listens, sels: Access.stats.sels, cycles: Access.stats.cycles, helpRequested: S.helpReq || undefined,
         errored: errors > 0,
@@ -1492,9 +1636,14 @@ function runChoice(it) {
     };
     async function choose(v, t) {
       if (done) return;
-      if (v === it.correct) {
+      // A typed answer is the letter as written; another letter with the same sound also counts (as in LECAA CAST).
+      const exact = t ? v === it.correct : v === showG(it.correct) || v === it.correct;
+      const sameSound = !t && !exact && FullKeyboard.sameSound(v, it.correct);
+      if (fkTpl && rec.input == null) { rec.input = fkMode(); if (sameSound) rec.homophone = true; }
+      if (exact || sameSound) {
+        if (!t && errors === 0) firstAnswer = v;
         finish(errors === 0 && !model);
-        t.classList.add("right"); Tone.play("ok");
+        (t || fkSlots)?.classList.add("right"); Tone.play("ok");
         await Voice.feedback(it.onOk);
         await sleep(Math.max(400, Feedback.gapMs()));
         resolve(rec);
@@ -1502,14 +1651,14 @@ function runChoice(it) {
         errors++; if (firstErr == null) firstErr = v;
         clearTimeout(timer);
         if(TaskSupport.mode(p)==='auto'){
-          t.classList.add("dim");Access.refresh();
+          if(t){t.classList.add("dim");Access.refresh();}else fkSet("");
           supportBusy=true;
           try{await applyHelp(help<2?2:Math.min(4,help+1));}finally{supportBusy=false;}
-        }else{t.classList.add('answer-error');setTimeout(()=>t.classList.remove('answer-error'),700);}
+        }else{const e=t||fkSlots;e?.classList.add('answer-error');setTimeout(()=>e?.classList.remove('answer-error'),700);}
         schedule();
       }
     }
-    S.abortTrial = () => { if (!done) { done = true; clearTimeout(timer); resolve(null); } };
+    S.abortTrial = () => { fkStop?.(); if (!done) { done = true; clearTimeout(timer); resolve(null); } };
     const presentationSession=S;
     let initialPresentation=true,presentationRun=0;
     S.pauseTrial=()=>{clearTimeout(timer);presentationRun++;supportBusy=false;};
@@ -1537,7 +1686,7 @@ function runChoice(it) {
           }
         }
         if(!current())return;
-        initialPresentation=false;t0=Date.now();Access.resumePresentation();schedule();
+        initialPresentation=false;t0=Date.now();Access.resumePresentation();if(fkInput)fkInput.focus({preventScroll:true});schedule();
       }finally{if(version===presentationRun){supportBusy=false;Access.locked=false;}}
     }
     present();
@@ -1551,18 +1700,23 @@ function runBuild(it) {
     const typed = [];
     let typedReadingToken=null;
     const slots = h("div", { class: "slots", "aria-live": "polite" });
+    // Full keyboard in T11: the reduced keyboard gives way to the device keyboard or the app keyboard. Supports 3 and 4 bring it back.
+    const fkOwn = FullKeyboard.own(p), fkField = h("div", { class: "fk-field" }, slots), fkArea = h("div", { class: "fk-area" });
+    let full = FullKeyboard.on(p, "T11"), fkReveal = 0, fullText = "", fkInput = null, fkStop = null, inputMode = null;
+    const fullUI = () => full && fkReveal < 3;
+    const fkMode = () => fullUI() ? (fkOwn ? "teclat-sencer-app" : "teclat-sencer-dispositiu") : "teclat-reduit" + (full ? "-per-ajuda" : "");
     const drawSlots = () => {if(typedReadingToken===Voice.token)Voice.stop();slots.replaceChildren(...target.g.map((_, i) => h("span", { class: "slot" }, typed[i] ? showG(typed[i]) : "")), ...typed.slice(target.g.length).map(g => h("span", { class: "slot" }, showG(g))));};
     drawSlots();
     const kb = h("div", { class: "kbd" });
     const row1 = h("div", { class: "krow", "data-groupbox": "k1" }), row2 = h("div", { class: "krow", "data-groupbox": "k2" });
     let keys = it.keys.slice();
     const drawKeys = () => {
-      row1.replaceChildren(...keys.map(g => { const b = h("button", { class: "key", "data-sel": "", "data-group": keys.length > 4 ? "k1" : null, "data-v": g, "aria-label": "lletra" }, showG(g)); b._act = () => { typed.push(g); drawSlots(); schedule(); Access.restartAfter(); }; return b; }));
+      row1.replaceChildren(...keys.map(g => { const b = h("button", { class: "key", "data-sel": "", "data-group": keys.length > 4 ? "k1" : null, "data-v": g, "aria-label": "lletra" }, showG(g)); b._act = () => { if (full) { fkType(fullText + showG(g)); Access.restartAfter(); return; } typed.push(g); drawSlots(); schedule(); Access.restartAfter(); }; return b; }));
     };
     drawKeys();
     const fn = (label, act, cue) => { const b = h("button", { class: "key fn", "data-sel": "", "data-group": "k2", "data-cue": cue || label }, label); b._act = act; return b; };
     row2.append(
-      fn("⌫ Esborra", () => { typed.pop(); drawSlots(); schedule(); Access.restartAfter(); }, "Esborra"),
+      fn("⌫ Esborra", () => { if (full) fkType(fullText.slice(0, -1)); else { typed.pop(); drawSlots(); schedule(); } Access.restartAfter(); }, "Esborra"),
       fn("👂 El que he escrit", async () => {
         if(done||(supportBusy&&typedReadingToken===null))return;
         clearTimeout(timer);supportBusy=true;
@@ -1572,10 +1726,40 @@ function runBuild(it) {
       }, "Escolta el que he escrit"),
       fn("✔ Fet", () => check(), "Fet"),
     );
+    const fkToggle = FullKeyboard.toggle(fkSwitch);
+    row2.append(fkToggle);
     kb.append(row1);
     row2.classList.add("writing-actions");
+    function fkRender() {
+      if (fkInput && document.activeElement === fkInput) fkInput.blur();
+      fkInput = null; fkField.replaceChildren(slots);
+      kb.style.display = fullUI() ? "none" : "";
+      fkArea.replaceChildren(...(fullUI() && fkOwn ? [FullKeyboard.keyboard(ch => { fkType(fullText + ch); Access.restartAfter(); })] : []));
+      fkArea.style.display = fkArea.childElementCount ? "" : "none";
+      if (!fullUI()) drawKeys();
+      fkField.classList.toggle("fk-typing", fullUI() && !fkOwn);
+      if (fullUI() && !fkOwn) fkInput = FullKeyboard.input(fkField, fullText, "Escriu la paraula", fkFromInput, () => check());
+      drawSlots(); FullKeyboard.paint(fkToggle, full);
+    }
+    function fkSet(text, composing = false) { fullText = text; typed.splice(0, typed.length, ...graphemes(text)); if (fkInput && !composing && fkInput.value !== text) fkInput.value = text; drawSlots(); }
+    function fkType(text, composing = false) {
+      text = FullKeyboard.clean(text);
+      if (done || S.paused || text === fullText) return false;
+      fkSet(text, composing); schedule(); return true;
+    }
+    function fkFromInput(composing) { if (fkInput && !fkType(fkInput.value, composing) && !composing && fkInput.value !== fullText) fkInput.value = fullText; }
+    function fkSwitch() {
+      if (done) return;
+      full = !full; FullKeyboard.set(p, "T11", full);
+      if (full) fkSet(FullKeyboard.clean(typed.map(showG).join(""))); else fullText = "";
+      fkRender(); Access.refresh();
+      if (fkInput) fkInput.focus({ preventScroll: true });
+      schedule();
+    }
     const pic1 = h("div", { class: "stim-pic", "aria-label": target.word }, pic(target.word));
-    mountStage([speechBubble("Escriu la paraula."), h("div", { class: "writing-layout" }, h("div", { class: "writing-main" }, h("div", { class: "stimulus" }, pic1), slots, kb), row2)],"T11");
+    fkRender();
+    mountStage([speechBubble("Escriu la paraula."), h("div", { class: "writing-layout" }, h("div", { class: "writing-main" }, h("div", { class: "stimulus" }, pic1), fkField, kb, fkArea), row2)],"T11");
+    fkStop = FullKeyboard.listen(() => !done && S === presentationSession && !S.ended && fullUI(), () => fkInput, k => fkType(k === null ? fullText.slice(0, -1) : fullText + k), () => check());
     let help = 0, errors = 0, firstErr = null, done = false, timer = null, t0 = Date.now(), listens = 0;
     const say = () => Voice.say(["Escriu", target.word]);
 
@@ -1585,7 +1769,8 @@ function runBuild(it) {
       GuideMotion.cue(lvl===1?4:5);
       help = Math.max(help, lvl);
       if (lvl === 1) await say();
-      if (lvl === 2) { const nextG = target.g[0]; const k = row1.querySelector(`[data-v="${CSS.escape(nextG)}"]`); k && k.classList.add("hint"); await Voice.say(["Escriu", target.word], { rate: 0.6 }); }
+      if (lvl === 2) { const nextG = fullUI() ? target.word[0] : target.g[0]; const k = (fullUI() ? fkArea : row1).querySelector(`[data-v="${CSS.escape(nextG)}"]`); k && k.classList.add("hint"); await Voice.say(["Escriu", target.word], { rate: 0.6 }); }
+      if (lvl >= 3 && fullUI()) { fkReveal = lvl; fkRender(); Access.refresh(); }
       if (lvl === 3) { keys = [...new Set(target.g)]; drawKeys(); Access.refresh(); }
       if (lvl === 4) { const m = h("div", { class: "stim-word" }, target.word); slots.before(m); await Voice.say(["Mira com s'escriu.", target.word]); await sleep(3000); m.remove(); }
     };
@@ -1597,16 +1782,17 @@ function runBuild(it) {
         if(done||S!==presentationSession||S.ended)return;if(S.paused||supportBusy)return schedule();supportBusy=true;
         try{if(TaskSupport.mode(p)==='repeat'){GuideMotion.cue(4);await say();}else await applyHelp(help+1);}
         finally{supportBusy=false;schedule();}
-      },TaskSupport.delay(p,1.6));
+      },TaskSupport.delay(p,fullUI()&&fkOwn?2:1.6));
     };
     S.onListen=async()=>{if(done||supportBusy)return;clearTimeout(timer);supportBusy=true;listens++;try{GuideMotion.cue(4);await say();}finally{supportBusy=false;schedule();}};
     S.onHelp=async()=>{if(done||supportBusy)return;clearTimeout(timer);supportBusy=true;try{await applyHelp(Math.max(2,Math.min(4,help+1)));}finally{supportBusy=false;schedule();}};
     async function check() {
       if (done) return;
-      const ok = typed.join("|") === target.g.join("|");
+      const ok = full ? fullText === target.word : typed.join("|") === target.g.join("|");
+      if (inputMode === null) inputMode = fkMode();
       if (ok) {
-        done = true; clearTimeout(timer);
-        Object.assign(rec, { answer: typed.map(showG).join(""), ok: errors === 0, indep: errors === 0 && help === 0, help: "A" + help, err: firstErr !== null ? "ERR-ESCR" : null, rt: Date.now() - t0, listens, sels: Access.stats.sels, cycles: Access.stats.cycles, helpRequested: S.helpReq || undefined, errored: errors > 0, typedFirst: firstErr });
+        done = true; clearTimeout(timer); fkStop?.();
+        Object.assign(rec, { input: inputMode, answer: typed.map(showG).join(""), ok: errors === 0, indep: errors === 0 && help === 0, help: "A" + help, err: firstErr !== null ? "ERR-ESCR" : null, rt: Date.now() - t0, listens, sels: Access.stats.sels, cycles: Access.stats.cycles, helpRequested: S.helpReq || undefined, errored: errors > 0, typedFirst: firstErr });
         S.helpReq=false; p.log.push(rec); S.trials.push(rec); const session=p.sessions.find(x=>x.id===S.sid);if(session)session.trials=S.trials.length; Store.save();
         Tone.play("ok"); slots.classList.add("right");
         await Voice.feedback(["Molt bé!", target.word]); await sleep(Math.max(300, Feedback.gapMs())); resolve(rec);
@@ -1617,13 +1803,13 @@ function runBuild(it) {
           supportBusy=true;
           try{
             if(Feedback.mode()==="voice")await Voice.say("Mira-ho bé.");await Voice.say(target.word);
-            typed.length=0;drawSlots();await applyHelp(help<2?2:Math.min(4,help+1));
+            if(full)fkSet("");else{typed.length=0;drawSlots();}await applyHelp(help<2?2:Math.min(4,help+1));
           }finally{supportBusy=false;}
         }else{slots.classList.add('answer-error');setTimeout(()=>slots.classList.remove('answer-error'),700);}
         schedule();Access.restartAfter();
       }
     }
-    S.abortTrial = () => { if (!done) { done = true; clearTimeout(timer); resolve(null); } };
+    S.abortTrial = () => { fkStop?.(); if (!done) { done = true; clearTimeout(timer); resolve(null); } };
     const presentationSession=S;
     let initialPresentation=true,presentationRun=0;
     S.pauseTrial=()=>{clearTimeout(timer);presentationRun++;supportBusy=false;};
@@ -1633,7 +1819,7 @@ function runBuild(it) {
       const version=++presentationRun;supportBusy=true;
       try{await say();}finally{
         if(version===presentationRun){supportBusy=false;
-          if(!done&&S===presentationSession&&!S.ended&&!S.paused){initialPresentation=false;t0=Date.now();Access.resumePresentation();schedule();}
+          if(!done&&S===presentationSession&&!S.ended&&!S.paused){initialPresentation=false;t0=Date.now();Access.resumePresentation();if(fkInput)fkInput.focus({preventScroll:true});schedule();}
         }
       }
     }
@@ -2010,7 +2196,8 @@ function planView(p, rerender) {
         field("Ítems per sessió", num(pl.trials, 5, 30, 1, v => { pl.trials = v; save(p, `Pla: ítems per sessió → ${v}`); }), "Inclou 2 d'escalfament i 1 de tancament."),
         field("Opcions per ítem a Lletra i so", sel(pl.options || 4, [[2, "2"], [3, "3"], [4, "4"]], v => { pl.options = +v; save(p, `Pla: opcions per ítem → ${v}`); })),
         field("Criteri de domini", sel(pl.crit, [[0.7, "70%"], [0.8, "80% (recomanat pel mètode)"], [0.9, "90%"]], v => { pl.crit = +v; save(p, `Pla: criteri → ${pct(+v)}`); }), "Percentatge d'encerts sense ajuda, en dues sessions, per donar una lletra per apresa."),
-        field("Suport de lectura actual", sel(p.state.sRead ?? 3, [[3, "S3 · li llegim lletra a lletra"], [2, "S2 · pot tocar les lletres"], [1, "S1 · pot escoltar la paraula"], [0, "S0 · llegeix sol"]], v => { p.state.sRead = +v; save(p, `Pla: suport de lectura → S${v}`); }), "L'aplicació el redueix sola després de 3 encerts seguits i l'augmenta després de 2 errors."))));
+        field("Suport de lectura actual", sel(p.state.sRead ?? 3, [[3, "S3 · li llegim lletra a lletra"], [2, "S2 · pot tocar les lletres"], [1, "S1 · pot escoltar la paraula"], [0, "S0 · llegeix sol"]], v => { p.state.sRead = +v; save(p, `Pla: suport de lectura → S${v}`); }), "L'aplicació el redueix sola després de 3 encerts seguits i l'augmenta després de 2 errors."),
+        ...fullKeyboardPlan(p, rerender))));
 }
 
 /* ----- Paraules i imatges ----- */
@@ -2120,7 +2307,7 @@ function avatarImage(key){
  const colors=['#e3ede5','#f4e4d1','#ffe8ba','#dde8ec','#e7e1f0','#f2deda','#e1e9d8','#dce8ed','#f4e5d5','#efdcd9'];
  return h('span',{class:'profile-emblem',style:`--avatar-bg:${colors[i]}`,'data-profile-emblem':String(i+1),'aria-hidden':'true'},h('span',{class:'svg-icon',html:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${PROFILE_EMBLEM_PATHS[i]}</svg>`}));
 }
-function footer(){const b=h('button',{type:'button'},'Crèdits');b.onclick=showCredits;return h('footer',{class:'page-footer'},h('div',{class:'stack',style:'gap:6px'},h('div',{class:'foot-note'},icon('lock'),h('span',{},'Els perfils es desen només en aquest navegador i dispositiu, també en línia. Desa una còpia des de Còpies de seguretat.')),h('small',{class:'app-revision','data-lecaa-revision':'guia-v45'},'Senzilles · Detallades · ARASAAC · Edició 45')),b);}
+function footer(){const b=h('button',{type:'button'},'Crèdits');b.onclick=showCredits;return h('footer',{class:'page-footer'},h('div',{class:'stack',style:'gap:6px'},h('div',{class:'foot-note'},icon('lock'),h('span',{},'Els perfils es desen només en aquest navegador i dispositiu, també en línia. Desa una còpia des de Còpies de seguretat.')),h('small',{class:'app-revision','data-lecaa-revision':'guia-v45.2'},'Senzilles · Detallades · ARASAAC · Edició 45.2')),b);}
 const CREDIT_INSTITUTIONS=[{"id":"utac","name":"UTAC","caption":"Unitat de Tècniques Augmentatives de Comunicació","url":"https://www.utac.cat/","src":"recursos/deacfb119b10a0292d54.png"},{"id":"ub","name":"Universitat de Barcelona","url":"https://web.ub.edu/","src":"recursos/1f599190ee5169f97a5b.png"},{"id":"fbg","name":"Fundació Bosch i Gimpera","url":"https://www.fbg.ub.edu/","src":"recursos/628aded9b78535071c1b.png"},{"id":"educacio","name":"Departament d’Educació i Formació Professional","caption":"UTAC Educació · Departament d’Educació i Formació Professional","url":"https://educacio.gencat.cat/","src":"recursos/c08e9664d4dbdbf52718.png"},{"id":"drets","name":"Departament de Drets Socials i Inclusió","caption":"UTAC Sírius · Departament de Drets Socials i Inclusió","url":"https://dretssocials.gencat.cat/","src":"recursos/b7e7083a8f0015176c7d.png"}];
 const CREDIT_TOOLS=[
  ['Activitats i aplicació','Claude','Anthropic','https://claude.ai/'],
@@ -2973,7 +3160,8 @@ const TaskLayout={
   const preferred=parseFloat(raw)*(raw.endsWith('rem')?px(document.documentElement,'fontSize'):1);
   const height=band.clientHeight-px(band,'paddingTop')-px(band,'paddingBottom');
   const set=(k,v)=>stage.style.setProperty(k,Math.floor(v*100)/100+'px');
-  const answers=content.querySelector(':scope > .answers');
+  // With the full keyboard option, Lletra i so keeps its options inside the writing layout.
+  const answers=content.querySelector(':scope > .answers')||content.querySelector('.fk-area > .answers');
   if(answers){
    const count=answers.children.length,gap=px(answers,'columnGap');
    const width=(answers.clientWidth-px(answers,'paddingLeft')-px(answers,'paddingRight')-gap*(count-1))/count;
@@ -2986,21 +3174,24 @@ const TaskLayout={
     const size=Math.max(44,Math.min(preferred,width,cap,pictureWidth/1.15));
     set('--fit-choice',size);set('--fit-picture',size*1.15);
    }else{
-    const others=[...content.children].filter(e=>e!==answers);
+    const holder=answers.parentElement===content?content:answers.closest('.writing-main');
+    const others=[...holder.children].filter(e=>!e.contains(answers)&&e.offsetParent!==null);
     cap=height-padding-others.reduce((sum,e)=>sum+e.getBoundingClientRect().height,0)-contentGap*others.length;
     set('--fit-choice',Math.max(44,Math.min(preferred,width,cap)));
    }
   }
-  const writing=content.querySelector('.writing-main'),row=writing?.querySelector('.krow');
-  if(row?.children.length){
+  // The reduced keyboard only; the full keyboard has its own sizes.
+  const writing=content.querySelector('.writing-main'),row=writing?.querySelector('.kbd:not(.fk-kbd) .krow');
+  if(row?.children.length&&row.offsetParent!==null){
    const n=row.children.length,gap=px(row,'columnGap');
    const width=Math.max(24,Math.min(preferred*.58,(writing.clientWidth-gap*(n-1))/n));
    const key=row.firstElementChild,normalHeight=px(key,'height');
    set('--fit-key-width',width);set('--fit-key-height',Math.min(normalHeight,Math.max(56,width*1.1)));
    set('--fit-key-font',Math.min(preferred*.34,width*.65));
-   const slots=writing.querySelector('.slots');
-   if(slots?.children.length){const sw=(slots.clientWidth-px(slots,'columnGap')*(slots.children.length-1))/slots.children.length;set('--fit-slot-font',Math.min(preferred*.5,sw*1.15));}
   }
+  // Letters must also fit the slot height (58px on short screens), with the reduced or the full keyboard.
+  const slots=writing?.querySelector('.slots');
+  if(slots?.children.length&&slots.offsetParent!==null){const sw=(slots.clientWidth-px(slots,'columnGap')*(slots.children.length-1))/slots.children.length;set('--fit-slot-font',Math.min(preferred*.5,sw*1.15,px(slots.firstElementChild,'height')/1.25));}
  },
  keepVisible(element){
   // Scroll only the activity, never the page or the fixed session controls.
