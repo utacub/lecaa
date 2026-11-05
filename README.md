@@ -1,6 +1,6 @@
 # LECAA
 
-**Lectura i Escriptura per a usuaris de Comunicació Augmentativa i Alternativa** · Edició 45.2 (29 d'octubre de 2026)
+**Lectura i Escriptura per a usuaris de Comunicació Augmentativa i Alternativa** · Edició 45.3 (5 de novembre de 2026)
 
 LECAA és una aplicació web per practicar les bases del codi escrit en català. Inclou activitats de so inicial, rima, correspondència entre lletres i sons, lectura de paraules i construcció de paraules amb un teclat reduït. A «Lletra i so» i «Construeix la paraula», el botó «Activar teclat sencer» permet escriure la resposta amb tot el teclat. Totes les respostes es donen seleccionant, de manera que no cal respondre oralment. Es pot fer servir amb selecció directa, ratolí, lector ocular o un o dos commutadors.
 
@@ -27,6 +27,8 @@ L'opció es desa per a cada alumne i per a cada activitat per separat. També es
 
 Els perfils, el progrés, les fotografies i els àudios personalitzats es desen només al navegador del dispositiu. LECAA no els envia a cap servidor, no té comptes en línia i no sincronitza dades entre dispositius. A l'iPad i l'iPhone, l'aplicació instal·lada desa les dades a part de Safari. Per canviar de dispositiu, de navegador o de manera d'obrir l'aplicació, cal exportar una còpia de seguretat des de l'aplicació i importar-la a l'altre lloc. Aquesta còpia conté dades personals i s'ha de conservar en privat.
 
+Cada perfil té una contrasenya per entrar a la zona d'adult. Si s'oblida, l'enllaç «He oblidat la contrasenya» permet posar-ne una de nova després de resoldre una multiplicació de dues xifres. Aquesta contrasenya serveix perquè l'alumne no entri sol a la zona d'adult; no protegeix les dades d'un adult que tingui el dispositiu.
+
 ## Contingut del repositori
 
 | Carpeta | Contingut |
@@ -34,7 +36,7 @@ Els perfils, el progrés, les fotografies i els àudios personalitzats es desen 
 | [`docs/`](docs/) | Guia i marc teòric, instruccions (LLEGEIX-ME), fonts i llicències, i sumes de comprovació de l'edició 45. |
 | [`index.html`](index.html), [`recursos/`](recursos/) | Versió en línia de l'aplicació. |
 | [`eines/`](eines/) | Script que genera la versió en línia a partir del fitxer únic. |
-| [`historial/`](historial/) | Canvis i verificacions de les edicions 42 a 45.2, auditoria de l'edició 41 i indicacions de les il·lustracions. |
+| [`historial/`](historial/) | Canvis i verificacions de les edicions 42 a 45.3, auditoria de l'edició 41 i indicacions de les il·lustracions. |
 
 ## Llicències
 

@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="ca"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-qV5444M+2QDHJNW+QqoXLUwWV0jKmGoNA+Z441b2+lg='; style-src 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'self'; frame-src 'none'; manifest-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-MLCUjpfLTd021Hlo0koyp+c3sQApkBQeLxQTrcWBkWA='; style-src 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'self'; frame-src 'none'; manifest-src 'self'">
 <meta name="referrer" content="no-referrer"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="lecaa-revision" content="2026-10-29-teclat-sencer-v45.2">
-<title>LECAA · v45.2</title>
+<meta name="lecaa-revision" content="2026-11-05-contrasenya-v45.3">
+<title>LECAA · v45.3</title>
 <meta name="description" content="Aplicació per aprendre a llegir i escriure en català, pensada per a alumnes que usen CAA">
 
 
@@ -686,6 +686,11 @@ button:disabled>*{opacity:1}
 .writing-main>.fk-field:not(.fk-typing){width:100%;justify-items:stretch}
 @media(min-width:701px){.stage.task-banded .writing-main .fk-typing .slot{flex:0 0 auto;width:calc(var(--tile)*.5)}
  .fk-typing>.slots{flex-wrap:wrap;justify-content:center;row-gap:6px}}
+
+/* 45.3: forgotten password in the adult-zone dialog. */
+.modal .forgot{justify-self:start;min-height:44px;padding:4px 0;border:0;background:none;color:var(--accent);font:inherit;font-size:.92rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.modal .forgot:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+.modal .reset-sum{font-size:1.6rem;font-weight:700;letter-spacing:.02em;color:inherit}
 
 
 /* Fit desktop/tablet tasks to their actual workspace; keep touch targets square. */
@@ -2008,7 +2013,8 @@ function adultGate(p, onEnter) {
     h("h2", {}, "Zona d'adult · ", p.name),
     p.example ? h("p", { class: "muted" }, "Perfil d'exemple: no té contrasenya.") : h("label", { class: "f" }, "Contrasenya", pw),
     err,
-    h("div", { class: "row" }, h("button", { class: "btn", type: "submit" }, "Entra"), (() => { const b = h("button", { class: "btn ghost", type: "button" }, S && !S.ended ? "Torna a la sessió" : "Cancel·la"); b.onclick = close; return b; })()));
+    h("div", { class: "row" }, h("button", { class: "btn", type: "submit" }, "Entra"), (() => { const b = h("button", { class: "btn ghost", type: "button" }, S && !S.ended ? "Torna a la sessió" : "Cancel·la"); b.onclick = close; return b; })()),
+    p.example ? null : (() => { const b = h("button", { class: "forgot", type: "button" }, "He oblidat la contrasenya"); b.onclick = () => resetPassword(p, form, enter); return b; })());
   form.addEventListener("submit", async ev => {
     ev.preventDefault();
     if (p.example || (await hashPw(pw.value)) === p.pwHash) enter();
@@ -2017,6 +2023,41 @@ function adultGate(p, onEnter) {
   if (S && !S.ended) { S.paused = true;S.pauseTrial?.(); Voice.stop(); Access.clear(); }
   ov.append(form); document.body.append(ov);
   trapDialogFocus(ov,close,p.example?form.querySelector('button[type="submit"]'):pw);
+}
+// Forgotten password: an adult solves a two-digit multiplication and chooses a new password.
+// It keeps learners out of the adult zone; it does not protect the data from an adult who has the device.
+function resetPassword(p, gateForm, enter) {
+  const pick = () => { let n; do n = 12 + Math.floor(Math.random() * 88); while (n % 10 === 0 || n % 11 === 0); return n; };
+  let a = pick(), b = pick();
+  const sum = h("span", { class: "reset-sum" });
+  const ans = h("input", { type: "text", inputmode: "numeric", autocomplete: "off", "aria-label": "Resultat de la multiplicació" });
+  const pw1 = h("input", { type: "password", autocomplete: "new-password" }), pw2 = h("input", { type: "password", autocomplete: "new-password" });
+  const err = h("p", { class: "note", hidden: true, "aria-live": "polite" });
+  const ask = () => { sum.textContent = a + " × " + b + " ="; };
+  const show = (text, field) => { err.textContent = text; err.hidden = false; field.focus(); };
+  const back = h("button", { class: "btn ghost", type: "button" }, "Torna");
+  const form = h("form", { class: "modal" },
+    h("h2", {}, "Contrasenya nova · ", p.name),
+    h("p", { class: "muted" }, "Per posar una contrasenya nova, resol aquesta multiplicació."),
+    h("label", { class: "f" }, sum, ans),
+    h("label", { class: "f" }, "Contrasenya nova", h("span", { class: "h" }, "Mínim 4 caràcters."), pw1),
+    h("label", { class: "f" }, "Repeteix la contrasenya", pw2),
+    err,
+    h("div", { class: "row" }, h("button", { class: "btn", type: "submit" }, "Desa i entra"), back));
+  back.onclick = () => { form.replaceWith(gateForm); gateForm.querySelector('input[type="password"]')?.focus(); };
+  form.addEventListener("submit", async ev => {
+    ev.preventDefault();
+    if (!/^\s*\d+\s*$/.test(ans.value) || Number(ans.value) !== a * b) {
+      a = pick(); b = pick(); ask(); ans.value = "";
+      return show("El resultat no és correcte. Prova amb aquesta altra multiplicació.", ans);
+    }
+    if (pw1.value.length < 4) return show("La contrasenya ha de tenir almenys 4 caràcters.", pw1);
+    if (pw1.value !== pw2.value) return show("Les contrasenyes no coincideixen.", pw2);
+    p.pwHash = await hashPw(pw1.value);
+    logChange(p, "Contrasenya nova amb «He oblidat la contrasenya»."); Store.save();
+    enter();
+  });
+  ask(); gateForm.replaceWith(form); ans.focus();
 }
 
 const TABS = [["acc", "Accés"], ["pres", "Presentació"], ["plan", "Pla"], ["words", "Paraules i imatges"], ["snd", "Sons gravats"], ["data", "Dades"], ["hist", "Historial"]];
@@ -2307,7 +2348,7 @@ function avatarImage(key){
  const colors=['#e3ede5','#f4e4d1','#ffe8ba','#dde8ec','#e7e1f0','#f2deda','#e1e9d8','#dce8ed','#f4e5d5','#efdcd9'];
  return h('span',{class:'profile-emblem',style:`--avatar-bg:${colors[i]}`,'data-profile-emblem':String(i+1),'aria-hidden':'true'},h('span',{class:'svg-icon',html:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${PROFILE_EMBLEM_PATHS[i]}</svg>`}));
 }
-function footer(){const b=h('button',{type:'button'},'Crèdits');b.onclick=showCredits;return h('footer',{class:'page-footer'},h('div',{class:'stack',style:'gap:6px'},h('div',{class:'foot-note'},icon('lock'),h('span',{},'Els perfils es desen només en aquest navegador i dispositiu, també en línia. Desa una còpia des de Còpies de seguretat.')),h('small',{class:'app-revision','data-lecaa-revision':'guia-v45.2'},'Senzilles · Detallades · ARASAAC · Edició 45.2')),b);}
+function footer(){const b=h('button',{type:'button'},'Crèdits');b.onclick=showCredits;return h('footer',{class:'page-footer'},h('div',{class:'stack',style:'gap:6px'},h('div',{class:'foot-note'},icon('lock'),h('span',{},'Els perfils es desen només en aquest navegador i dispositiu, també en línia. Desa una còpia des de Còpies de seguretat.')),h('small',{class:'app-revision','data-lecaa-revision':'guia-v45.3'},'Senzilles · Detallades · ARASAAC · Edició 45.3')),b);}
 const CREDIT_INSTITUTIONS=[{"id":"utac","name":"UTAC","caption":"Unitat de Tècniques Augmentatives de Comunicació","url":"https://www.utac.cat/","src":"recursos/deacfb119b10a0292d54.png"},{"id":"ub","name":"Universitat de Barcelona","url":"https://web.ub.edu/","src":"recursos/1f599190ee5169f97a5b.png"},{"id":"fbg","name":"Fundació Bosch i Gimpera","url":"https://www.fbg.ub.edu/","src":"recursos/628aded9b78535071c1b.png"},{"id":"educacio","name":"Departament d’Educació i Formació Professional","caption":"UTAC Educació · Departament d’Educació i Formació Professional","url":"https://educacio.gencat.cat/","src":"recursos/c08e9664d4dbdbf52718.png"},{"id":"drets","name":"Departament de Drets Socials i Inclusió","caption":"UTAC Sírius · Departament de Drets Socials i Inclusió","url":"https://dretssocials.gencat.cat/","src":"recursos/b7e7083a8f0015176c7d.png"}];
 const CREDIT_TOOLS=[
  ['Activitats i aplicació','Claude','Anthropic','https://claude.ai/'],
