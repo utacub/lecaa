@@ -12,7 +12,18 @@ L'aplicació s'ha creat des de la Unitat de Tècniques Augmentatives de Comunica
 
 - **En línia:** https://utacub.github.io/lecaa/
 
-La versió en línia es genera a partir d'un fitxer HTML únic que porta incorporats totes les imatges, els àudios, les animacions i les fonts. Com que GitHub no admet fitxers de més de 100 MB, [`eines/separa_recursos.py`](eines/separa_recursos.py) en separa els recursos, i després [`eines/afegeix_pwa.py`](eines/afegeix_pwa.py) la fa instal·lable com a aplicació (PWA) i utilitzable sense connexió. Aquest pas aplica també els ajustos de disposició i focus de [`eines/ajusta_compatibilitat.py`](eines/ajusta_compatibilitat.py). El peu de la pantalla d’adult indica el progrés de descàrrega i mostra «Disponible sense connexió» quan tots els recursos estan desats. A la pàgina inicial, el botó «Instal·lar» obre la instal·lació del navegador o, quan el navegador no ho permet des de la pàgina (Safari a l’iPad i l’iPhone), n’explica els passos.
+La versió en línia es genera a partir d'un fitxer HTML únic que porta incorporats totes les imatges, els àudios, les animacions i les fonts. Com que GitHub no admet fitxers de més de 100 MB, [`eines/separa_recursos.py`](eines/separa_recursos.py) en separa els recursos, i després [`eines/afegeix_pwa.py`](eines/afegeix_pwa.py) la fa instal·lable com a aplicació (PWA) i utilitzable sense connexió. Aquest pas aplica també els ajustos de disposició i focus de [`eines/ajusta_compatibilitat.py`](eines/ajusta_compatibilitat.py).
+
+### Instal·lar-la i fer-la servir sense connexió
+
+El botó «Instal·lar» de la pàgina inicial obre una finestra que indica quant ocupa LECAA (uns 154 MB entre imatges, sons i veus, vídeos i el programa).
+
+- **Chrome i Edge.** El botó «Instal·la» de la finestra instal·la l'aplicació i descarrega totes les imatges, els sons i els vídeos al dispositiu. Mentre es descarreguen, la finestra mostra un avís perquè no es tanqui LECAA ni es desconnecti el dispositiu, una barra de progrés i els MB que ja s'han descarregat.
+- **iPad i iPhone.** La finestra explica com afegir LECAA a la pantalla d'inici. Després cal obrir LECAA des de la pantalla d'inici amb connexió a Internet: la primera vegada s'hi obre la mateixa finestra i s'hi descarrega tot. Cal fer-ho des de l'aplicació de la pantalla d'inici, perquè té l'emmagatzematge separat de Safari.
+
+Si la descàrrega s'atura (perquè es perd la connexió, es tanca LECAA o es prem «Atura la descàrrega»), la vegada següent continua on s'havia quedat, sense tornar a baixar el que ja hi ha. Si la connexió torna mentre LECAA és oberta, continua sola. Visitar la web sense instal·lar-la no descarrega res de més. El peu de la pantalla d'adult mostra el progrés i, quan tot és al dispositiu, «Disponible sense connexió».
+
+`afegeix_pwa.py` escriu `pwa-fitxers.json`, amb la llista de fitxers i la mida de cadascun. La pàgina els descarrega amb `lecaa-pwa.js` i el treballador de servei (`sw.js`) els serveix quan no hi ha connexió. Els canvis i les comprovacions són a [`historial/Correccions_PWA_2026-11-21.md`](historial/Correccions_PWA_2026-11-21.md).
 
 ### Teclat sencer
 

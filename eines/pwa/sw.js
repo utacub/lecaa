@@ -1,62 +1,26 @@
 // LECAA: treballador de servei per instal·lar l'aplicació i fer-la servir sense connexió.
+// La pàgina (lecaa-pwa.js) descarrega els recursos a la memòria cau RECURSOS; aquí només se serveixen.
 const VERSIO = '__VERSIO__';
 const NUCLI = 'lecaa-nucli-' + VERSIO;
 const RECURSOS = 'lecaa-recursos';
-const FITXERS_NUCLI = ['./', 'index.html', 'manifest.webmanifest', 'pwa.js', 'icones/icona-192.png', 'icones/icona-512.png', 'icones/icona-maskable-512.png'];
+const FITXERS_NUCLI = __NUCLI__;
 const LLISTA_RECURSOS = __RECURSOS__;
+const CLAUS_NUCLI = new Set(FITXERS_NUCLI.map(f => new URL(f, self.location).href));
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(NUCLI).then(c => c.addAll(FITXERS_NUCLI)).then(() => self.skipWaiting()));
+  // 'reload': les còpies noves, no les de la memòria del navegador.
+  e.waitUntil(caches.open(NUCLI).then(c => c.addAll(FITXERS_NUCLI.map(f => new Request(f, { cache: 'reload' }))))
+    .then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', e => {
   e.waitUntil((async () => {
     for (const k of await caches.keys()) if (k.startsWith('lecaa-nucli-') && k !== NUCLI) await caches.delete(k);
-    const c = await caches.open(RECURSOS), vigents = new Set(LLISTA_RECURSOS.map(r => new URL(r, self.registration.scope).href));
+    const c = await caches.open(RECURSOS), vigents = new Set(LLISTA_RECURSOS.map(r => new URL(r, self.location).href));
     for (const req of await c.keys()) if (!vigents.has(req.url)) await c.delete(req);
     await self.clients.claim();
   })());
 });
-
-// Report actual cached resources; installation alone does not imply offline readiness.
-let preparant = null;
-async function publicaEstat(state, done) {
-  const data = { type: 'lecaa-offline-status', version: VERSIO, state, done, total: LLISTA_RECURSOS.length };
-  for (const client of await self.clients.matchAll({ type: 'window', includeUncontrolled: true })) {
-    if (client.url.startsWith(self.registration.scope)) client.postMessage(data);
-  }
-}
-function precarrega() {
-  if (preparant) return preparant;
-  preparant = (async () => {
-    let done = 0;
-    try {
-      const c = await caches.open(RECURSOS), pendents = [];
-      for (const r of LLISTA_RECURSOS) {
-        if (await c.match(r)) done++; else pendents.push(r);
-      }
-      await publicaEstat('preparing', done);
-      let next = 0, failed = false, lastReport = 0;
-      // A small pool avoids serial round trips without flooding tablets.
-      await Promise.all(Array.from({ length: 3 }, async () => {
-        while (!failed && next < pendents.length) {
-          const r = pendents[next++];
-          try {
-            const response = await fetch(r);
-            if (!response.ok) throw new Error('HTTP ' + response.status);
-            await c.put(r, response); done++;
-            if (Date.now() - lastReport > 400) {
-              lastReport = Date.now(); await publicaEstat('preparing', done);
-            }
-          } catch (error) { failed = true; }
-        }
-      }));
-      await publicaEstat(done === LLISTA_RECURSOS.length ? 'ready' : 'error', done);
-    } catch (error) { await publicaEstat('error', done); }
-  })().finally(() => { preparant = null; });
-  return preparant;
-}
-self.addEventListener('message', e => { if (e.data === 'precarrega') e.waitUntil(precarrega()); });
 
 // Les etiquetes d'àudio i vídeo demanen trossos del fitxer (capçalera Range).
 async function respostaParcial(req, resp) {
@@ -70,21 +34,43 @@ async function respostaParcial(req, resp) {
     'Content-Length': String(fi - inici + 1), 'Accept-Ranges': 'bytes' } });
 }
 
+// Primer la xarxa, perquè les versions noves arribin; sense connexió, o si la xarxa no respon en 4 segons,
+// la còpia desada.
+function xarxaPrimer(req, clau) {
+  const xarxa = fetch(req).then(resp => {
+    if (resp.ok && resp.type === 'basic') { const copia = resp.clone(); caches.open(NUCLI).then(c => c.put(clau, copia)); }
+    return resp;
+  });
+  const desada = () => caches.match(clau);
+  return new Promise(resol => {
+    let fet = false;
+    const acaba = r => { if (!fet && r) { fet = true; resol(r); } };
+    const temps = setTimeout(() => desada().then(acaba), 4000);
+    xarxa.then(r => { clearTimeout(temps); acaba(r); },
+      () => { clearTimeout(temps); desada().then(r => acaba(r || Response.error())); });
+  });
+}
+
 self.addEventListener('fetch', e => {
   const req = e.request, url = new URL(req.url);
   if (req.method !== 'GET' || url.origin !== self.location.origin) return;
+  // Les descàrregues de la pàgina van directament a la xarxa.
+  if (url.searchParams.has('baixa')) return;
+  const clau = url.origin + url.pathname;
   if (url.pathname.includes('/recursos/')) {
     e.respondWith((async () => {
-      const c = await caches.open(RECURSOS), clau = url.origin + url.pathname;
+      const c = await caches.open(RECURSOS);
       let resp = await c.match(clau);
       if (!resp) { resp = await fetch(clau); if (resp.ok) c.put(clau, resp.clone()); }
       return req.headers.has('range') ? respostaParcial(req, resp) : resp;
     })());
   } else if (req.mode === 'navigate') {
-    // Primer la xarxa, perquè les versions noves arribin; sense connexió, la còpia desada.
-    e.respondWith(fetch(req).then(resp => { const copia = resp.clone(); caches.open(NUCLI).then(c => c.put('index.html', copia)); return resp; })
-      .catch(() => caches.match('index.html', { ignoreSearch: true })));
+    const app = clau === new URL('./', self.location).href || clau === new URL('index.html', self.location).href;
+    e.respondWith(app ? xarxaPrimer(req, new URL('index.html', self.location).href)
+      : fetch(req).catch(() => caches.match(new URL('index.html', self.location).href)));
+  } else if (CLAUS_NUCLI.has(clau)) {
+    e.respondWith(xarxaPrimer(req, clau));
   } else {
-    e.respondWith(caches.match(req, { ignoreSearch: true }).then(r => r || fetch(req)));
+    e.respondWith(fetch(req).catch(() => caches.match(clau).then(r => r || Response.error())));
   }
 });
